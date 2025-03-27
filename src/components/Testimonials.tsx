@@ -169,7 +169,7 @@ const Testimonials = () => {
           </div>
         </div>
         
-        <div className="mt-24 grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
+        <div className="mt-24 grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
           <div className="flex flex-col items-center">
             <div className="text-4xl font-bold text-timewise-900 mb-2">98%</div>
             <p className="text-timewise-600 text-center text-sm">Kundenzufriedenheit</p>
@@ -178,11 +178,6 @@ const Testimonials = () => {
           <div className="flex flex-col items-center">
             <div className="text-4xl font-bold text-timewise-900 mb-2">30m</div>
             <p className="text-timewise-600 text-center text-sm">Durchschnittliche Einrichtungszeit</p>
-          </div>
-          
-          <div className="flex flex-col items-center">
-            <div className="text-4xl font-bold text-timewise-900 mb-2">5k+</div>
-            <p className="text-timewise-600 text-center text-sm">Aktive Kunden</p>
           </div>
           
           <div className="flex flex-col items-center">
