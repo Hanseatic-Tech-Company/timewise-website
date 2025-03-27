@@ -1,5 +1,6 @@
 
 import { ArrowRight, Clock, Calendar, Shield } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 const Hero = () => {
   return (
@@ -24,12 +25,25 @@ const Hero = () => {
             </p>
             
             <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 mb-12 animate-slide-down animate-delay-200">
-              <a href="#contact" className="button-primary w-full sm:w-auto">
-                Kostenlos testen
-              </a>
-              <a href="#demo" className="button-secondary w-full sm:w-auto flex items-center justify-center gap-2 group">
-                Demo ansehen <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
-              </a>
+              <Button 
+                size="lg" 
+                variant="default" 
+                className="w-full sm:w-auto bg-timewise-600 hover:bg-timewise-700 text-white"
+                asChild
+              >
+                <a href="#contact">Kostenlos testen</a>
+              </Button>
+              
+              <Button 
+                size="lg" 
+                variant="outline" 
+                className="w-full sm:w-auto border-timewise-200 text-timewise-900 hover:bg-gray-50 group"
+                asChild
+              >
+                <a href="#demo" className="flex items-center gap-2">
+                  Demo ansehen <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1" />
+                </a>
+              </Button>
             </div>
             
             <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-6 animate-slide-down animate-delay-300">
