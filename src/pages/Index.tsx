@@ -4,11 +4,13 @@ import Hero from "@/components/Hero";
 import Features from "@/components/Features";
 import Testimonials from "@/components/Testimonials";
 import Pricing from "@/components/Pricing";
-import FAQ from "@/components/FAQ";
 import CTA from "@/components/CTA";
 import Footer from "@/components/Footer";
 import MockupImages from "@/components/MockupImages";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState, lazy, Suspense } from "react";
+
+// Lazy load the FAQ component which had performance issues
+const FAQ = lazy(() => import("@/components/FAQ"));
 
 const Index = () => {
   const [imagesReady, setImagesReady] = useState(false);
@@ -58,7 +60,9 @@ const Index = () => {
         <Features />
         <Testimonials />
         <Pricing />
-        <FAQ />
+        <Suspense fallback={<div className="h-[400px] flex items-center justify-center">Lade FAQ...</div>}>
+          <FAQ />
+        </Suspense>
         <CTA />
       </main>
       <Footer />

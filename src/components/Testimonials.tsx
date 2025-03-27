@@ -2,6 +2,13 @@
 import { useState, useEffect, useRef } from "react";
 import { ChevronLeft, ChevronRight, Star } from "lucide-react";
 import { cn } from "@/lib/utils";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselPrevious,
+  CarouselNext,
+} from "@/components/ui/carousel";
 
 const testimonials = [
   {
@@ -42,31 +49,39 @@ const testimonials = [
 ];
 
 const Testimonials = () => {
-  const [activeIndex, setActiveIndex] = useState(0);
-  const [isAnimating, setIsAnimating] = useState(false);
-  const sliderRef = useRef<HTMLDivElement>(null);
-
-  const next = () => {
-    if (isAnimating) return;
-    setIsAnimating(true);
-    setActiveIndex((prev) => (prev === testimonials.length - 1 ? 0 : prev + 1));
-    setTimeout(() => setIsAnimating(false), 500);
-  };
-
-  const prev = () => {
-    if (isAnimating) return;
-    setIsAnimating(true);
-    setActiveIndex((prev) => (prev === 0 ? testimonials.length - 1 : prev - 1));
-    setTimeout(() => setIsAnimating(false), 500);
-  };
+  const [api, setApi] = useState<any>(null);
+  const [current, setCurrent] = useState(0);
   
+  // Update current slide when carousel changes
+  useEffect(() => {
+    if (!api) {
+      return;
+    }
+
+    const onSelect = () => {
+      setCurrent(api.selectedScrollSnap());
+    };
+
+    api.on("select", onSelect);
+    
+    // Initial slide
+    onSelect();
+
+    return () => {
+      api.off("select", onSelect);
+    };
+  }, [api]);
+
+  // Auto rotation
   useEffect(() => {
     const interval = setInterval(() => {
-      next();
+      if (api) {
+        api.scrollNext();
+      }
     }, 6000);
     
     return () => clearInterval(interval);
-  }, []);
+  }, [api]);
 
   return (
     <section id="testimonials" className="py-24 px-6 md:px-12 lg:px-24 bg-timewise-50 relative">
@@ -87,52 +102,50 @@ const Testimonials = () => {
         </div>
         
         <div className="relative">
-          <div 
-            ref={sliderRef}
-            className="overflow-hidden relative pb-8"
-          >
-            <div 
-              className="flex transition-transform duration-500 ease-out"
-              style={{ transform: `translateX(-${activeIndex * 100}%)` }}
-            >
+          <Carousel className="w-full" setApi={setApi}>
+            <CarouselContent>
               {testimonials.map((testimonial) => (
-                <div 
-                  key={testimonial.id}
-                  className="w-full flex-shrink-0 px-4 py-2"
-                >
-                  <div className="bg-white rounded-3xl shadow-lg border border-timewise-100 overflow-hidden max-w-4xl mx-auto p-8 md:p-12">
-                    <div className="flex mb-6">
-                      {[...Array(5)].map((_, i) => (
-                        <Star
-                          key={i}
-                          className={cn(
-                            "h-5 w-5 mr-1",
-                            i < testimonial.rating ? "text-yellow-400 fill-yellow-400" : "text-gray-300"
-                          )}
-                        />
-                      ))}
-                    </div>
-                    <blockquote className="text-xl md:text-2xl font-medium text-timewise-950 mb-8 italic">
-                      "{testimonial.quote}"
-                    </blockquote>
-                    <div className="flex items-center">
-                      <div className="w-12 h-12 rounded-full bg-timewise-100 flex items-center justify-center mr-4">
-                        <span className="font-semibold text-timewise-800">{testimonial.author.charAt(0)}</span>
+                <CarouselItem key={testimonial.id}>
+                  <div className="w-full px-4 py-2">
+                    <div className="bg-white rounded-3xl shadow-lg border border-timewise-100 overflow-hidden max-w-4xl mx-auto p-8 md:p-12">
+                      <div className="flex mb-6">
+                        {[...Array(5)].map((_, i) => (
+                          <Star
+                            key={i}
+                            className={cn(
+                              "h-5 w-5 mr-1",
+                              i < testimonial.rating ? "text-yellow-400 fill-yellow-400" : "text-gray-300"
+                            )}
+                          />
+                        ))}
                       </div>
-                      <div>
-                        <div className="font-semibold text-timewise-900">{testimonial.author}</div>
-                        <div className="text-sm text-timewise-600">{testimonial.role}</div>
+                      <blockquote className="text-xl md:text-2xl font-medium text-timewise-950 mb-8 italic">
+                        "{testimonial.quote}"
+                      </blockquote>
+                      <div className="flex items-center">
+                        <div className="w-12 h-12 rounded-full bg-timewise-100 flex items-center justify-center mr-4">
+                          <span className="font-semibold text-timewise-800">{testimonial.author.charAt(0)}</span>
+                        </div>
+                        <div>
+                          <div className="font-semibold text-timewise-900">{testimonial.author}</div>
+                          <div className="text-sm text-timewise-600">{testimonial.role}</div>
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
+                </CarouselItem>
               ))}
+            </CarouselContent>
+            
+            <div className="hidden">
+              <CarouselPrevious />
+              <CarouselNext />
             </div>
-          </div>
+          </Carousel>
           
           <div className="mt-8 flex justify-center items-center gap-6">
             <button
-              onClick={prev}
+              onClick={() => api?.scrollPrev()}
               className="w-10 h-10 rounded-full border border-timewise-300 bg-white flex items-center justify-center text-timewise-600 hover:bg-timewise-50 hover:text-timewise-800 transition-all shadow-sm"
               aria-label="Vorheriges Testimonial"
             >
@@ -143,14 +156,9 @@ const Testimonials = () => {
               {testimonials.map((_, idx) => (
                 <button
                   key={idx}
-                  onClick={() => {
-                    if (isAnimating) return;
-                    setIsAnimating(true);
-                    setActiveIndex(idx);
-                    setTimeout(() => setIsAnimating(false), 500);
-                  }}
+                  onClick={() => api?.scrollTo(idx)}
                   className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                    activeIndex === idx
+                    current === idx
                       ? "w-8 bg-timewise-600"
                       : "bg-timewise-300 hover:bg-timewise-400"
                   }`}
@@ -160,7 +168,7 @@ const Testimonials = () => {
             </div>
             
             <button
-              onClick={next}
+              onClick={() => api?.scrollNext()}
               className="w-10 h-10 rounded-full border border-timewise-300 bg-white flex items-center justify-center text-timewise-600 hover:bg-timewise-50 hover:text-timewise-800 transition-all shadow-sm"
               aria-label="Nächstes Testimonial"
             >

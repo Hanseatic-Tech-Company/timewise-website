@@ -1,6 +1,25 @@
 
+import React, { memo } from "react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
+import { HelpCircle } from "lucide-react";
+
+// Memoize individual FAQ items for better performance
+const FaqItem = memo(({ faq, index }: { faq: { question: string; answer: string }; index: number }) => (
+  <AccordionItem 
+    value={`item-${index}`}
+    className="border rounded-xl overflow-hidden bg-white/80 hover:border-timewise-200 data-[state=open]:border-timewise-300 data-[state=open]:shadow-md data-[state=open]:bg-white mb-4"
+  >
+    <AccordionTrigger className="px-6 py-4 font-semibold text-timewise-900 hover:no-underline">
+      {faq.question}
+    </AccordionTrigger>
+    <AccordionContent className="px-6 text-timewise-700">
+      {faq.answer}
+    </AccordionContent>
+  </AccordionItem>
+));
+
+FaqItem.displayName = "FaqItem";
 
 const faqs = [
   {
@@ -46,6 +65,7 @@ const FAQ = () => {
       <div className="max-w-5xl mx-auto">
         <div className="text-center mb-16">
           <div className="inline-flex items-center px-3 py-1.5 mb-6 border border-timewise-200 rounded-full bg-white shadow-sm">
+            <HelpCircle className="w-4 h-4 mr-2 text-timewise-700" />
             <span className="text-sm font-medium text-timewise-700">Häufige Fragen</span>
           </div>
           <h2 className="heading-lg text-timewise-950 mb-6">
@@ -57,20 +77,13 @@ const FAQ = () => {
         </div>
         
         <div className="space-y-4">
-          <Accordion type="single" collapsible className="w-full">
+          <Accordion 
+            type="multiple" 
+            defaultValue={[]}
+            className="w-full"
+          >
             {faqs.map((faq, index) => (
-              <AccordionItem 
-                key={index} 
-                value={`item-${index}`}
-                className="border rounded-xl overflow-hidden bg-white/80 hover:border-timewise-200 data-[state=open]:border-timewise-300 data-[state=open]:shadow-md data-[state=open]:bg-white"
-              >
-                <AccordionTrigger className="px-6 py-4 font-semibold text-timewise-900 hover:no-underline">
-                  {faq.question}
-                </AccordionTrigger>
-                <AccordionContent className="px-6 pb-4 text-timewise-700">
-                  {faq.answer}
-                </AccordionContent>
-              </AccordionItem>
+              <FaqItem key={index} faq={faq} index={index} />
             ))}
           </Accordion>
         </div>
@@ -91,4 +104,4 @@ const FAQ = () => {
   );
 };
 
-export default FAQ;
+export default React.memo(FAQ);
