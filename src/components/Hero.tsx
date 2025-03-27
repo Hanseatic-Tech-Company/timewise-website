@@ -1,4 +1,3 @@
-
 import { ArrowRight, Clock, Calendar, Shield } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
@@ -17,7 +16,14 @@ const Hero = () => {
             </div>
             
             <h1 className="heading-xl mb-6 text-timewise-950 animate-slide-down">
-              Smarte Zeiterfassung & Urlaubsmanagement
+              <span className="text-timewise-600 block mb-2">Zeit smart managen.</span>
+              <span className="relative">
+                Produktivität <span className="relative">steigern
+                  <svg className="absolute -bottom-2 left-0 w-full" viewBox="0 0 200 8" preserveAspectRatio="none">
+                    <path d="M0,5 C50,0 150,0 200,5" stroke="#3c9158" strokeWidth="2" fill="none" />
+                  </svg>
+                </span>
+              </span>
             </h1>
             
             <p className="text-lg text-timewise-700 mb-8 max-w-xl mx-auto lg:mx-0 animate-slide-down animate-delay-100">
