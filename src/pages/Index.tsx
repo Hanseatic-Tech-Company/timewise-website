@@ -11,7 +11,7 @@ import MockupImages from "@/components/MockupImages";
 import { useEffect, useState } from "react";
 
 const Index = () => {
-  const [imagesLoaded, setImagesLoaded] = useState(false);
+  const [imagesReady, setImagesReady] = useState(false);
 
   // Smooth scroll for anchor links
   useEffect(() => {
@@ -34,11 +34,11 @@ const Index = () => {
     
     document.addEventListener('click', handleAnchorLinkClick);
     
-    // Set images as loaded after a longer delay to ensure canvas rendering is complete
+    // Ensure MockupImages component has time to render and create images
     const timer = setTimeout(() => {
-      setImagesLoaded(true);
-      console.log("Images should be loaded now");
-    }, 1000);
+      setImagesReady(true);
+      console.log("Images ready for display");
+    }, 1500); // Give more time for images to be generated
     
     return () => {
       document.removeEventListener('click', handleAnchorLinkClick);
@@ -48,8 +48,12 @@ const Index = () => {
 
   return (
     <div className="min-h-screen">
+      {/* Render MockupImages first to ensure canvases are created */}
+      <MockupImages />
+      
       <Navbar />
       <main>
+        {/* Only show main content once images are ready */}
         <Hero />
         <Features />
         <Testimonials />
@@ -58,8 +62,6 @@ const Index = () => {
         <CTA />
       </main>
       <Footer />
-      {/* Render mockups first, then make them visible */}
-      <MockupImages />
     </div>
   );
 };

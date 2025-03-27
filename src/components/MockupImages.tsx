@@ -1,4 +1,3 @@
-
 import React, { useEffect, useRef } from 'react';
 
 const createTimeTrackingMockup = (canvas: HTMLCanvasElement) => {
@@ -799,80 +798,72 @@ const createDashboardMockup = (canvas: HTMLCanvasElement) => {
   });
 };
 
+const storeCanvasAsImage = (canvasId: string, imagePath: string) => {
+  try {
+    const canvas = document.getElementById(canvasId) as HTMLCanvasElement;
+    if (!canvas) {
+      console.error(`Canvas not found: ${canvasId}`);
+      return;
+    }
+    
+    const dataUrl = canvas.toDataURL('image/png');
+    sessionStorage.setItem(imagePath, dataUrl);
+    
+    // Update any existing images with this source
+    const images = document.querySelectorAll(`img[src="${imagePath}"]`);
+    images.forEach((img: Element) => {
+      (img as HTMLImageElement).src = dataUrl;
+    });
+    
+    console.log(`Stored image in sessionStorage: ${imagePath}`);
+  } catch (e) {
+    console.error(`Error storing canvas as image: ${e}`);
+  }
+};
+
+const getStoredImage = (imagePath: string): string => {
+  const storedImage = sessionStorage.getItem(imagePath);
+  if (storedImage) {
+    return storedImage;
+  }
+  return 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"%3E%3Crect width="100" height="100" fill="%23f1f5f9"/%3E%3Ctext x="50%25" y="50%25" dominant-baseline="middle" text-anchor="middle" font-family="sans-serif" font-size="14" fill="%2364748b"%3EImage%3C/text%3E%3C/svg%3E';
+};
+
 const MockupImages: React.FC = () => {
   const canvasesRendered = useRef(false);
   
   useEffect(() => {
     if (canvasesRendered.current) return;
     
-    // Find all canvas elements
-    const dashboardCanvas = document.getElementById('dashboard-mockup') as HTMLCanvasElement;
-    const timeTrackingCanvas = document.getElementById('time-tracking-mockup') as HTMLCanvasElement;
-    const vacationCanvas = document.getElementById('vacation-calendar-mockup') as HTMLCanvasElement;
-    const complianceCanvas = document.getElementById('compliance-report-mockup') as HTMLCanvasElement;
-    const analyticsCanvas = document.getElementById('analytics-dashboard-mockup') as HTMLCanvasElement;
-    
-    // Create mockups
-    if (dashboardCanvas) createDashboardMockup(dashboardCanvas);
-    if (timeTrackingCanvas) createTimeTrackingMockup(timeTrackingCanvas);
-    if (vacationCanvas) createVacationMockup(vacationCanvas);
-    if (complianceCanvas) createComplianceMockup(complianceCanvas);
-    if (analyticsCanvas) createAnalyticsMockup(analyticsCanvas);
-    
-    // Convert canvases to image sources
-    setTimeout(() => {
-      updateImageSources();
+    const renderCanvases = () => {
+      // Find all canvas elements
+      const dashboardCanvas = document.getElementById('dashboard-mockup') as HTMLCanvasElement;
+      const timeTrackingCanvas = document.getElementById('time-tracking-mockup') as HTMLCanvasElement;
+      const vacationCanvas = document.getElementById('vacation-calendar-mockup') as HTMLCanvasElement;
+      const complianceCanvas = document.getElementById('compliance-report-mockup') as HTMLCanvasElement;
+      const analyticsCanvas = document.getElementById('analytics-dashboard-mockup') as HTMLCanvasElement;
+      
+      // Create mockups
+      if (dashboardCanvas) createDashboardMockup(dashboardCanvas);
+      if (timeTrackingCanvas) createTimeTrackingMockup(timeTrackingCanvas);
+      if (vacationCanvas) createVacationMockup(vacationCanvas);
+      if (complianceCanvas) createComplianceMockup(complianceCanvas);
+      if (analyticsCanvas) createAnalyticsMockup(analyticsCanvas);
+      
+      // Store all canvases as images
+      storeCanvasAsImage('dashboard-mockup', '/dashboard-mockup.png');
+      storeCanvasAsImage('time-tracking-mockup', '/time-tracking-mockup.png');
+      storeCanvasAsImage('vacation-calendar-mockup', '/vacation-calendar-mockup.png');
+      storeCanvasAsImage('compliance-report-mockup', '/compliance-report-mockup.png');
+      storeCanvasAsImage('analytics-dashboard-mockup', '/analytics-dashboard-mockup.png');
+      
       canvasesRendered.current = true;
-    }, 500);
+      console.log("All mockup images rendered and stored in sessionStorage");
+    };
+    
+    // Allow a small delay for the canvas elements to be rendered
+    setTimeout(renderCanvases, 200);
   }, []);
-  
-  const updateImageSources = () => {
-    try {
-      updateImgSrc('dashboard-mockup', '/dashboard-mockup.png');
-      updateImgSrc('time-tracking-mockup', '/time-tracking-mockup.png');
-      updateImgSrc('vacation-calendar-mockup', '/vacation-calendar-mockup.png');
-      updateImgSrc('compliance-report-mockup', '/compliance-report-mockup.png');
-      updateImgSrc('analytics-dashboard-mockup', '/analytics-dashboard-mockup.png');
-      
-      console.log("All mockup images updated successfully!");
-    } catch (e) {
-      console.error('Error updating image sources:', e);
-    }
-  };
-  
-  const updateImgSrc = (canvasId: string, imgSrc: string) => {
-    try {
-      const canvas = document.getElementById(canvasId) as HTMLCanvasElement;
-      if (!canvas) {
-        console.error(`Canvas not found: ${canvasId}`);
-        return;
-      }
-      
-      const dataUrl = canvas.toDataURL('image/png');
-      
-      // Find all images with this source and update them
-      const images = document.querySelectorAll(`img[src="${imgSrc}"]`);
-      
-      if (images.length === 0) {
-        // If no images are found, create a link preload to ensure the data URL is available
-        const link = document.createElement('link');
-        link.rel = 'preload';
-        link.href = dataUrl;
-        link.as = 'image';
-        document.head.appendChild(link);
-        
-        // Also add this to sessionStorage for faster retrieval
-        sessionStorage.setItem(imgSrc, dataUrl);
-      }
-      
-      images.forEach((img: Element) => {
-        (img as HTMLImageElement).src = dataUrl;
-        console.log(`Updated image source for ${imgSrc}`);
-      });
-    } catch (e) {
-      console.error(`Error updating image source for ${canvasId}:`, e);
-    }
-  };
   
   return (
     <div className="hidden">

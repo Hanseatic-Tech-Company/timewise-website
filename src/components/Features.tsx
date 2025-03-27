@@ -10,6 +10,7 @@ import {
   CheckCircle2
 } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { getStoredImage } from "./MockupImages";
 
 const features = [
   {
@@ -74,12 +75,13 @@ const Features = () => {
   const [activeFeature, setActiveFeature] = useState(features[0].id);
   const [imageLoaded, setImageLoaded] = useState(false);
   const featureRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const [imageKey, setImageKey] = useState(0); // Add a key to force re-render of image
   
   // Use an effect to create canvas images once when component mounts
   useEffect(() => {
     const timer = setTimeout(() => {
       setImageLoaded(true);
-    }, 800);
+    }, 500);
     
     return () => clearTimeout(timer);
   }, []);
@@ -109,7 +111,13 @@ const Features = () => {
   // Force a re-render when switching features
   const forceImageReload = () => {
     setImageLoaded(false);
+    setImageKey(prevKey => prevKey + 1); // Change the key to force a re-render
     setTimeout(() => setImageLoaded(true), 50);
+  };
+
+  // Function to get stored image from sessionStorage
+  const getFeatureImage = (path: string) => {
+    return getStoredImage(path);
   };
 
   return (
@@ -176,8 +184,8 @@ const Features = () => {
               <div className="relative h-64 md:h-72 lg:h-80 overflow-hidden">
                 {imageLoaded && (
                   <img 
-                    key={currentFeature.id} 
-                    src={currentFeature.image}
+                    key={`${currentFeature.id}-${imageKey}`}
+                    src={getFeatureImage(currentFeature.image)}
                     alt={currentFeature.title}
                     className="w-full h-full object-cover object-center"
                     onError={(e) => {
