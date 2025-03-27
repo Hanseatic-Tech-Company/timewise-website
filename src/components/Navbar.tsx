@@ -27,16 +27,14 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         <a 
           href="#" 
-          className="flex items-center space-x-2"
+          className="flex items-center"
           aria-label="Timewise Logo"
         >
-          <div className="h-8 w-8 rounded-md bg-white flex items-center justify-center">
-            <div className="relative w-5 h-5">
-              <div className="absolute top-0 left-0 w-3 h-3 bg-black rounded-full"></div>
-              <div className="absolute bottom-0 right-0 w-3 h-3 bg-black rounded-full"></div>
-            </div>
-          </div>
-          <span className="font-display font-bold text-xl text-timewise-900">Timewise</span>
+          <img 
+            src="/lovable-uploads/timewise-logo.png" 
+            alt="Timewise" 
+            className="h-8 md:h-10"
+          />
         </a>
 
         {/* Desktop navigation */}

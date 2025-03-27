@@ -7,14 +7,12 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-24 py-16">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
           <div className="md:col-span-1">
-            <div className="flex items-center space-x-2 mb-6">
-              <div className="h-8 w-8 rounded-md bg-white flex items-center justify-center">
-                <div className="relative w-5 h-5">
-                  <div className="absolute top-0 left-0 w-3 h-3 bg-black rounded-full"></div>
-                  <div className="absolute bottom-0 right-0 w-3 h-3 bg-black rounded-full"></div>
-                </div>
-              </div>
-              <span className="font-display font-bold text-xl text-white">Timewise</span>
+            <div className="mb-6">
+              <img 
+                src="/lovable-uploads/timewise-logo.png" 
+                alt="Timewise" 
+                className="h-10 brightness-0 invert"
+              />
             </div>
             
             <p className="text-timewise-300 mb-6 max-w-md">
