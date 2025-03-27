@@ -5,36 +5,36 @@ import { cn } from "@/lib/utils";
 
 const faqs = [
   {
-    question: "How quickly can we get started with Timewise?",
-    answer: "Most customers are up and running within 30 minutes. Our intuitive setup wizard will guide you through the process, and our support team is available to help if needed."
+    question: "Wie schnell können wir mit Timewise starten?",
+    answer: "Die meisten Kunden sind innerhalb von 30 Minuten einsatzbereit. Unser intuitiver Einrichtungsassistent führt Sie durch den Prozess, und unser Support-Team steht Ihnen bei Bedarf zur Verfügung."
   },
   {
-    question: "Is Timewise compliant with labor laws?",
-    answer: "Yes, Timewise is designed to be compliant with labor laws across multiple jurisdictions. We regularly update our system to reflect changes in regulations, ensuring your business always remains compliant."
+    question: "Ist Timewise konform mit Arbeitsgesetzen?",
+    answer: "Ja, Timewise ist so konzipiert, dass es den Arbeitsgesetzen in verschiedenen Rechtsordnungen entspricht. Wir aktualisieren unser System regelmäßig, um Änderungen in den Vorschriften zu berücksichtigen und sicherzustellen, dass Ihr Unternehmen stets konform bleibt."
   },
   {
-    question: "Can employees track time on mobile devices?",
-    answer: "Absolutely! Timewise works on any device with a web browser. We also offer dedicated mobile apps for iOS and Android that provide a seamless experience for employees on the go."
+    question: "Können Mitarbeiter die Zeit auf mobilen Geräten erfassen?",
+    answer: "Absolut! Timewise funktioniert auf jedem Gerät mit einem Webbrowser. Wir bieten auch dedizierte mobile Apps für iOS und Android, die eine nahtlose Erfahrung für Mitarbeiter unterwegs bieten."
   },
   {
-    question: "How does the vacation approval process work?",
-    answer: "Employees submit vacation requests through our platform, which automatically checks for conflicts and compliance issues. Managers receive notifications and can approve or reject requests with a single click. The system then updates calendars and balances automatically."
+    question: "Wie funktioniert der Urlaubsgenehmigungsprozess?",
+    answer: "Mitarbeiter reichen Urlaubsanträge über unsere Plattform ein, die automatisch auf Konflikte und Compliance-Probleme prüft. Manager erhalten Benachrichtigungen und können Anfragen mit einem einzigen Klick genehmigen oder ablehnen. Das System aktualisiert dann automatisch Kalender und Salden."
   },
   {
-    question: "Can Timewise integrate with our existing HR software?",
-    answer: "Yes, Timewise offers integrations with popular HR platforms, payroll systems, and calendar applications. We also provide an API for custom integrations with your organization's specific tools."
+    question: "Kann Timewise mit unserer bestehenden HR-Software integriert werden?",
+    answer: "Ja, Timewise bietet Integrationen mit beliebten HR-Plattformen, Lohnabrechnungssystemen und Kalenderanwendungen. Wir bieten auch eine API für benutzerdefinierte Integrationen mit den spezifischen Tools Ihrer Organisation."
   },
   {
-    question: "What kind of support do you offer?",
-    answer: "All plans include email support with response times based on your plan level. Professional and Enterprise plans include priority support, while Enterprise customers also receive a dedicated account manager for personalized assistance."
+    question: "Welche Art von Support bieten Sie an?",
+    answer: "Alle Pläne umfassen E-Mail-Support mit Antwortzeiten basierend auf Ihrer Planstufe. Professional- und Enterprise-Pläne umfassen Prioritätssupport, während Enterprise-Kunden auch einen dedizierten Account Manager für persönliche Unterstützung erhalten."
   },
   {
-    question: "Is our data secure with Timewise?",
-    answer: "Security is our top priority. We use industry-standard encryption, regular security audits, and follow best practices for data protection. Timewise is GDPR compliant and we never share your data with third parties without your explicit permission."
+    question: "Sind unsere Daten bei Timewise sicher?",
+    answer: "Sicherheit hat für uns oberste Priorität. Wir verwenden branchenübliche Verschlüsselung, regelmäßige Sicherheitsaudits und folgen Best Practices für den Datenschutz. Timewise ist DSGVO-konform und wir teilen Ihre Daten niemals ohne Ihre ausdrückliche Erlaubnis mit Dritten."
   },
   {
-    question: "Can we export data from Timewise?",
-    answer: "Yes, you can export data in various formats including CSV, Excel, and PDF. This makes it easy to use your time tracking and vacation data in other systems or for custom reporting needs."
+    question: "Können wir Daten aus Timewise exportieren?",
+    answer: "Ja, Sie können Daten in verschiedenen Formaten exportieren, darunter CSV, Excel und PDF. Dies erleichtert die Nutzung Ihrer Zeiterfassungs- und Urlaubsdaten in anderen Systemen oder für benutzerdefinierte Berichtsanforderungen."
   }
 ];
 
@@ -57,13 +57,13 @@ const FAQ = () => {
       <div className="max-w-5xl mx-auto">
         <div className="text-center mb-16">
           <div className="inline-flex items-center px-3 py-1.5 mb-6 border border-timewise-200 rounded-full bg-white shadow-sm">
-            <span className="text-sm font-medium text-timewise-700">Common Questions</span>
+            <span className="text-sm font-medium text-timewise-700">Häufige Fragen</span>
           </div>
           <h2 className="heading-lg text-timewise-950 mb-6">
-            Frequently asked questions
+            Häufig gestellte Fragen
           </h2>
           <p className="text-timewise-700 max-w-2xl mx-auto">
-            Find answers to common questions about Timewise. If you need more information, our support team is just a click away.
+            Finden Sie Antworten auf häufige Fragen zu Timewise. Wenn Sie weitere Informationen benötigen, ist unser Support-Team nur einen Klick entfernt.
           </p>
         </div>
         
@@ -110,12 +110,12 @@ const FAQ = () => {
         </div>
         
         <div className="mt-16 text-center">
-          <p className="text-timewise-700 mb-6">Still have questions?</p>
+          <p className="text-timewise-700 mb-6">Noch Fragen?</p>
           <a 
             href="#contact" 
             className="button-primary inline-block"
           >
-            Contact Support
+            Support Kontaktieren
           </a>
         </div>
       </div>

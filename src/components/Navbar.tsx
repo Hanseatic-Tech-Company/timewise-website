@@ -45,19 +45,19 @@ const Navbar = () => {
             href="#features" 
             className="text-sm font-medium text-timewise-950 hover:text-timewise-600 transition-colors"
           >
-            Features
+            Funktionen
           </a>
           <a 
             href="#testimonials" 
             className="text-sm font-medium text-timewise-950 hover:text-timewise-600 transition-colors"
           >
-            Testimonials
+            Kundenstimmen
           </a>
           <a 
             href="#pricing" 
             className="text-sm font-medium text-timewise-950 hover:text-timewise-600 transition-colors"
           >
-            Pricing
+            Preise
           </a>
           <a 
             href="#faq" 
@@ -72,13 +72,13 @@ const Navbar = () => {
             href="#contact" 
             className="px-5 py-2 text-sm font-medium text-timewise-700 hover:text-timewise-800 transition-colors"
           >
-            Login
+            Anmelden
           </a>
           <a 
             href="#contact" 
             className="button-primary text-sm"
           >
-            Get Started
+            Jetzt Starten
           </a>
         </div>
 
@@ -86,7 +86,7 @@ const Navbar = () => {
         <button
           className="md:hidden text-timewise-900 focus:outline-none"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          aria-label="Toggle menu"
+          aria-label="Menü umschalten"
         >
           {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
@@ -101,21 +101,21 @@ const Navbar = () => {
               className="block text-sm font-medium text-timewise-950 hover:text-timewise-600 transition-colors"
               onClick={() => setMobileMenuOpen(false)}
             >
-              Features
+              Funktionen
             </a>
             <a 
               href="#testimonials" 
               className="block text-sm font-medium text-timewise-950 hover:text-timewise-600 transition-colors"
               onClick={() => setMobileMenuOpen(false)}
             >
-              Testimonials
+              Kundenstimmen
             </a>
             <a 
               href="#pricing" 
               className="block text-sm font-medium text-timewise-950 hover:text-timewise-600 transition-colors"
               onClick={() => setMobileMenuOpen(false)}
             >
-              Pricing
+              Preise
             </a>
             <a 
               href="#faq" 
@@ -130,14 +130,14 @@ const Navbar = () => {
                 className="block px-5 py-2 text-center text-timewise-700 hover:text-timewise-800 transition-colors"
                 onClick={() => setMobileMenuOpen(false)}
               >
-                Login
+                Anmelden
               </a>
               <a 
                 href="#contact" 
                 className="block button-primary text-center"
                 onClick={() => setMobileMenuOpen(false)}
               >
-                Get Started
+                Jetzt Starten
               </a>
             </div>
           </div>

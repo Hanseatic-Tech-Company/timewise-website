@@ -6,37 +6,37 @@ import { cn } from "@/lib/utils";
 const testimonials = [
   {
     id: 1,
-    quote: "Timewise transformed our team's productivity. The time tracking is intuitive and the vacation management feature eliminated all the back-and-forth emails. It's been a game-changer for us.",
+    quote: "Timewise hat die Produktivität unseres Teams verändert. Die Zeiterfassung ist intuitiv und die Urlaubsverwaltungsfunktion hat all die Hin- und Her-E-Mails beseitigt. Für uns war es ein echter Wendepunkt.",
     author: "Sarah J.",
-    role: "HR Director",
+    role: "HR Direktorin",
     rating: 5
   },
   {
     id: 2,
-    quote: "We needed a solution that would simplify vacation tracking while ensuring we stay compliant with labor laws. Timewise delivered beyond our expectations. Setup was incredibly fast too!",
+    quote: "Wir brauchten eine Lösung, die die Urlaubsverfolgung vereinfacht und gleichzeitig sicherstellt, dass wir die Arbeitsgesetze einhalten. Timewise hat unsere Erwartungen übertroffen. Die Einrichtung war außerdem unglaublich schnell!",
     author: "Michael C.",
-    role: "Operations Manager",
+    role: "Betriebsleiter",
     rating: 5
   },
   {
     id: 3,
-    quote: "The interface is so intuitive that our team started using it without any training. I especially love how the reports give us insights we never had before.",
+    quote: "Die Benutzeroberfläche ist so intuitiv, dass unser Team sie ohne jegliche Schulung zu nutzen begann. Besonders gefällt mir, wie die Berichte uns Einblicke geben, die wir vorher nie hatten.",
     author: "Emma R.",
-    role: "Team Lead",
+    role: "Teamleiterin",
     rating: 5
   },
   {
     id: 4,
-    quote: "As a small business owner, I needed something affordable that wouldn't require an IT team to maintain. Timewise is perfect - powerful yet simple. The free tier was perfect to start with.",
+    quote: "Als Kleinunternehmer brauchte ich etwas Erschwingliches, das kein IT-Team zur Wartung benötigt. Timewise ist perfekt - leistungsstark und dennoch einfach. Die kostenlose Version war perfekt zum Starten.",
     author: "David T.",
-    role: "Founder",
+    role: "Gründer",
     rating: 5
   },
   {
     id: 5,
-    quote: "We've optimized our workforce scheduling and saved thousands in operational costs thanks to Timewise. The compliance features alone are worth every penny.",
+    quote: "Dank Timewise haben wir unsere Personalplanung optimiert und Tausende an Betriebskosten gespart. Allein die Compliance-Funktionen sind jeden Cent wert.",
     author: "Olivia P.",
-    role: "CFO",
+    role: "Finanzvorstand",
     rating: 5
   }
 ];
@@ -76,13 +76,13 @@ const Testimonials = () => {
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <div className="inline-flex items-center px-3 py-1.5 mb-6 border border-timewise-200 rounded-full bg-white shadow-sm">
-            <span className="text-sm font-medium text-timewise-700">Customer Stories</span>
+            <span className="text-sm font-medium text-timewise-700">Kundenstimmen</span>
           </div>
           <h2 className="heading-lg text-timewise-950 mb-6">
-            Trusted by companies worldwide
+            Vertraut von Unternehmen weltweit
           </h2>
           <p className="text-timewise-700 max-w-2xl mx-auto">
-            Don't just take our word for it. Here's what our customers have to say about their experience with Timewise.
+            Nehmen Sie nicht nur unser Wort dafür. Hier ist, was unsere Kunden über ihre Erfahrungen mit Timewise zu sagen haben.
           </p>
         </div>
         
@@ -134,7 +134,7 @@ const Testimonials = () => {
             <button
               onClick={prev}
               className="w-10 h-10 rounded-full border border-timewise-300 bg-white flex items-center justify-center text-timewise-600 hover:bg-timewise-50 hover:text-timewise-800 transition-all shadow-sm"
-              aria-label="Previous testimonial"
+              aria-label="Vorheriges Testimonial"
             >
               <ChevronLeft className="h-5 w-5" />
             </button>
@@ -154,7 +154,7 @@ const Testimonials = () => {
                       ? "w-8 bg-timewise-600"
                       : "bg-timewise-300 hover:bg-timewise-400"
                   }`}
-                  aria-label={`Go to testimonial ${idx + 1}`}
+                  aria-label={`Gehe zu Testimonial ${idx + 1}`}
                 />
               ))}
             </div>
@@ -162,7 +162,7 @@ const Testimonials = () => {
             <button
               onClick={next}
               className="w-10 h-10 rounded-full border border-timewise-300 bg-white flex items-center justify-center text-timewise-600 hover:bg-timewise-50 hover:text-timewise-800 transition-all shadow-sm"
-              aria-label="Next testimonial"
+              aria-label="Nächstes Testimonial"
             >
               <ChevronRight className="h-5 w-5" />
             </button>
@@ -172,22 +172,22 @@ const Testimonials = () => {
         <div className="mt-24 grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
           <div className="flex flex-col items-center">
             <div className="text-4xl font-bold text-timewise-900 mb-2">98%</div>
-            <p className="text-timewise-600 text-center text-sm">Customer satisfaction</p>
+            <p className="text-timewise-600 text-center text-sm">Kundenzufriedenheit</p>
           </div>
           
           <div className="flex flex-col items-center">
             <div className="text-4xl font-bold text-timewise-900 mb-2">30m</div>
-            <p className="text-timewise-600 text-center text-sm">Average setup time</p>
+            <p className="text-timewise-600 text-center text-sm">Durchschnittliche Einrichtungszeit</p>
           </div>
           
           <div className="flex flex-col items-center">
             <div className="text-4xl font-bold text-timewise-900 mb-2">5k+</div>
-            <p className="text-timewise-600 text-center text-sm">Active customers</p>
+            <p className="text-timewise-600 text-center text-sm">Aktive Kunden</p>
           </div>
           
           <div className="flex flex-col items-center">
             <div className="text-4xl font-bold text-timewise-900 mb-2">24/7</div>
-            <p className="text-timewise-600 text-center text-sm">Customer support</p>
+            <p className="text-timewise-600 text-center text-sm">Kundensupport</p>
           </div>
         </div>
       </div>

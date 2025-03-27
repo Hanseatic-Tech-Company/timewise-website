@@ -6,41 +6,41 @@ import { useState } from "react";
 const pricingPlans = [
   {
     id: "free",
-    name: "Free",
-    description: "Perfect for small teams just getting started",
+    name: "Kostenlos",
+    description: "Perfekt für kleine Teams, die gerade erst anfangen",
     price: 0,
     features: [
-      "Up to 3 users",
-      "Time tracking",
-      "Basic vacation management",
-      "Standard reports",
-      "Email support"
+      "Bis zu 3 Benutzer",
+      "Zeiterfassung",
+      "Grundlegende Urlaubsverwaltung",
+      "Standardberichte",
+      "E-Mail-Support"
     ],
     notIncluded: [
-      "Advanced compliance features",
-      "Custom approval workflows",
-      "API access",
-      "Custom reports",
-      "Dedicated support"
+      "Erweiterte Compliance-Funktionen",
+      "Benutzerdefinierte Genehmigungsabläufe",
+      "API-Zugriff",
+      "Benutzerdefinierte Berichte",
+      "Dedizierter Support"
     ],
     mostPopular: false,
     buttonVariant: "secondary" as const
   },
   {
     id: "unlimited",
-    name: "Unlimited",
-    description: "Everything your growing team needs",
+    name: "Unbegrenzt",
+    description: "Alles, was Ihr wachsendes Team braucht",
     price: 14.99,
     features: [
-      "Unlimited users",
-      "Advanced time tracking",
-      "Full vacation management",
-      "Compliance features",
-      "Custom approval workflows", 
-      "Custom reports",
-      "API access",
-      "Priority email support",
-      "Dedicated support"
+      "Unbegrenzte Benutzer",
+      "Erweiterte Zeiterfassung",
+      "Vollständige Urlaubsverwaltung",
+      "Compliance-Funktionen",
+      "Benutzerdefinierte Genehmigungsabläufe", 
+      "Benutzerdefinierte Berichte",
+      "API-Zugriff",
+      "Prioritäts-E-Mail-Support",
+      "Dedizierter Support"
     ],
     notIncluded: [],
     mostPopular: true,
@@ -56,13 +56,13 @@ const Pricing = () => {
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <div className="inline-flex items-center px-3 py-1.5 mb-6 border border-timewise-200 rounded-full bg-white shadow-sm">
-            <span className="text-sm font-medium text-timewise-700">Simple Pricing</span>
+            <span className="text-sm font-medium text-timewise-700">Einfache Preisgestaltung</span>
           </div>
           <h2 className="heading-lg text-timewise-950 mb-6">
-            Transparent pricing for everyone
+            Transparente Preise für alle
           </h2>
           <p className="text-timewise-700 max-w-2xl mx-auto">
-            Free for small teams, affordable flat rate for everyone else. No hidden fees.
+            Kostenlos für kleine Teams, erschwinglicher Festpreis für alle anderen. Keine versteckten Gebühren.
           </p>
         </div>
         
@@ -79,7 +79,7 @@ const Pricing = () => {
             >
               {plan.mostPopular && (
                 <div className="absolute top-0 right-0 bg-timewise-500 text-white text-xs font-bold py-1.5 px-4 rounded-bl-lg">
-                  Most Popular
+                  Am beliebtesten
                 </div>
               )}
               
@@ -90,10 +90,10 @@ const Pricing = () => {
                 <div className="mb-8">
                   <div className="flex items-baseline">
                     <span className="text-4xl font-bold text-timewise-900">
-                      ${plan.price}
+                      {plan.price > 0 ? `${plan.price}€` : "0€"}
                     </span>
                     <span className="text-timewise-600 ml-2">
-                      {plan.price > 0 ? "per month" : "forever"}
+                      {plan.price > 0 ? "pro Monat" : "für immer"}
                     </span>
                   </div>
                 </div>
@@ -107,11 +107,11 @@ const Pricing = () => {
                       : "button-secondary"
                   )}
                 >
-                  {plan.price === 0 ? "Get Started Free" : "Start Free Trial"}
+                  {plan.price === 0 ? "Kostenlos Starten" : "Kostenlos Testen"}
                 </a>
                 
                 <div className="space-y-4">
-                  <p className="text-sm font-medium text-timewise-900">Includes:</p>
+                  <p className="text-sm font-medium text-timewise-900">Enthält:</p>
                   
                   <div className="space-y-3">
                     {plan.features.map((feature, idx) => (
@@ -124,7 +124,7 @@ const Pricing = () => {
                   
                   {plan.notIncluded.length > 0 && (
                     <>
-                      <p className="text-sm font-medium text-timewise-900 pt-4">Not included:</p>
+                      <p className="text-sm font-medium text-timewise-900 pt-4">Nicht enthalten:</p>
                       <div className="space-y-3">
                         {plan.notIncluded.map((feature, idx) => (
                           <div key={idx} className="flex items-start">
@@ -142,9 +142,9 @@ const Pricing = () => {
         </div>
         
         <div className="mt-16 text-center">
-          <p className="text-timewise-600 mb-4">Have questions about our pricing?</p>
+          <p className="text-timewise-600 mb-4">Haben Sie Fragen zu unseren Preisen?</p>
           <a href="#contact" className="text-timewise-700 font-medium hover:text-timewise-900 underline">
-            Contact our team for more information
+            Kontaktieren Sie unser Team für weitere Informationen
           </a>
         </div>
       </div>

@@ -11,10 +11,10 @@ const CTA = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <div>
             <h2 className="heading-lg text-timewise-950 mb-6">
-              Ready to simplify time tracking and vacation management?
+              Bereit, die Zeiterfassung und Urlaubsverwaltung zu vereinfachen?
             </h2>
             <p className="text-timewise-700 mb-8">
-              Join thousands of satisfied companies that trust Timewise for their time tracking and vacation management needs. Start your 14-day free trial today.
+              Schließen Sie sich Tausenden zufriedener Unternehmen an, die Timewise für ihre Zeiterfassungs- und Urlaubsverwaltungsbedürfnisse vertrauen. Starten Sie Ihre 14-tägige kostenlose Testphase noch heute.
             </p>
             
             <div className="space-y-6 mb-12">
@@ -23,8 +23,8 @@ const CTA = () => {
                   <Clock className="h-5 w-5 text-timewise-600" />
                 </div>
                 <div>
-                  <h3 className="text-lg font-semibold text-timewise-900 mb-1">Quick setup, instant value</h3>
-                  <p className="text-timewise-700 text-sm">Be up and running in minutes, not days or weeks</p>
+                  <h3 className="text-lg font-semibold text-timewise-900 mb-1">Schnelle Einrichtung, sofortiger Nutzen</h3>
+                  <p className="text-timewise-700 text-sm">In Minuten einsatzbereit, nicht Tagen oder Wochen</p>
                 </div>
               </div>
               
@@ -33,8 +33,8 @@ const CTA = () => {
                   <Calendar className="h-5 w-5 text-timewise-600" />
                 </div>
                 <div>
-                  <h3 className="text-lg font-semibold text-timewise-900 mb-1">Hassle-free vacation planning</h3>
-                  <p className="text-timewise-700 text-sm">Streamline time off requests and approvals</p>
+                  <h3 className="text-lg font-semibold text-timewise-900 mb-1">Problemlose Urlaubsplanung</h3>
+                  <p className="text-timewise-700 text-sm">Optimieren Sie Urlaubsanträge und Genehmigungen</p>
                 </div>
               </div>
               
@@ -43,8 +43,8 @@ const CTA = () => {
                   <Shield className="h-5 w-5 text-timewise-600" />
                 </div>
                 <div>
-                  <h3 className="text-lg font-semibold text-timewise-900 mb-1">Always compliant</h3>
-                  <p className="text-timewise-700 text-sm">Stay on the right side of labor laws and regulations</p>
+                  <h3 className="text-lg font-semibold text-timewise-900 mb-1">Immer konform</h3>
+                  <p className="text-timewise-700 text-sm">Bleiben Sie auf der richtigen Seite der Arbeitsgesetze und Vorschriften</p>
                 </div>
               </div>
               
@@ -53,8 +53,8 @@ const CTA = () => {
                   <Users className="h-5 w-5 text-timewise-600" />
                 </div>
                 <div>
-                  <h3 className="text-lg font-semibold text-timewise-900 mb-1">Loved by teams</h3>
-                  <p className="text-timewise-700 text-sm">Intuitive interface that employees actually enjoy using</p>
+                  <h3 className="text-lg font-semibold text-timewise-900 mb-1">Geliebt von Teams</h3>
+                  <p className="text-timewise-700 text-sm">Intuitive Oberfläche, die Mitarbeiter tatsächlich gerne nutzen</p>
                 </div>
               </div>
             </div>
@@ -63,63 +63,63 @@ const CTA = () => {
               href="#" 
               className="button-primary inline-flex items-center"
             >
-              Start Free Trial <ArrowRight className="ml-2 h-4 w-4" />
+              Kostenlos Testen <ArrowRight className="ml-2 h-4 w-4" />
             </a>
             <p className="text-sm text-timewise-600 mt-4">
-              No credit card required. 14-day free trial.
+              Keine Kreditkarte erforderlich. 14-tägige kostenlose Testphase.
             </p>
           </div>
           
           <div className="bg-white rounded-3xl shadow-xl border border-timewise-100 overflow-hidden">
             <div className="p-8">
-              <h3 className="text-2xl font-semibold text-timewise-900 mb-6">Get in touch</h3>
+              <h3 className="text-2xl font-semibold text-timewise-900 mb-6">Kontaktieren Sie uns</h3>
               
               <form className="space-y-6">
                 <div className="space-y-1">
                   <label htmlFor="name" className="text-sm font-medium text-timewise-900">
-                    Full Name
+                    Vollständiger Name
                   </label>
                   <input 
                     type="text" 
                     id="name" 
-                    placeholder="Enter your name"
+                    placeholder="Geben Sie Ihren Namen ein"
                     className="w-full px-4 py-3 rounded-lg border border-timewise-200 focus:border-timewise-500 focus:ring-2 focus:ring-timewise-500/20 transition-colors"
                   />
                 </div>
                 
                 <div className="space-y-1">
                   <label htmlFor="email" className="text-sm font-medium text-timewise-900">
-                    Work Email
+                    Arbeits-E-Mail
                   </label>
                   <input 
                     type="email" 
                     id="email" 
-                    placeholder="name@company.com"
+                    placeholder="name@unternehmen.de"
                     className="w-full px-4 py-3 rounded-lg border border-timewise-200 focus:border-timewise-500 focus:ring-2 focus:ring-timewise-500/20 transition-colors"
                   />
                 </div>
                 
                 <div className="space-y-1">
                   <label htmlFor="company" className="text-sm font-medium text-timewise-900">
-                    Company Name
+                    Unternehmensname
                   </label>
                   <input 
                     type="text" 
                     id="company" 
-                    placeholder="Your company"
+                    placeholder="Ihr Unternehmen"
                     className="w-full px-4 py-3 rounded-lg border border-timewise-200 focus:border-timewise-500 focus:ring-2 focus:ring-timewise-500/20 transition-colors"
                   />
                 </div>
                 
                 <div className="space-y-1">
                   <label htmlFor="employees" className="text-sm font-medium text-timewise-900">
-                    Number of Employees
+                    Anzahl der Mitarbeiter
                   </label>
                   <select 
                     id="employees"
                     className="w-full px-4 py-3 rounded-lg border border-timewise-200 focus:border-timewise-500 focus:ring-2 focus:ring-timewise-500/20 transition-colors"
                   >
-                    <option value="">Select team size</option>
+                    <option value="">Teamgröße auswählen</option>
                     <option value="1-10">1-10</option>
                     <option value="11-50">11-50</option>
                     <option value="51-200">51-200</option>
@@ -130,12 +130,12 @@ const CTA = () => {
                 
                 <div className="space-y-1">
                   <label htmlFor="message" className="text-sm font-medium text-timewise-900">
-                    Message (Optional)
+                    Nachricht (Optional)
                   </label>
                   <textarea 
                     id="message" 
                     rows={3}
-                    placeholder="How can we help you?"
+                    placeholder="Wie können wir Ihnen helfen?"
                     className="w-full px-4 py-3 rounded-lg border border-timewise-200 focus:border-timewise-500 focus:ring-2 focus:ring-timewise-500/20 transition-colors"
                   ></textarea>
                 </div>
@@ -144,12 +144,12 @@ const CTA = () => {
                   type="submit"
                   className="w-full button-primary"
                 >
-                  Get Started
+                  Jetzt Starten
                 </button>
               </form>
               
               <p className="text-xs text-timewise-600 mt-6 text-center">
-                By submitting this form, you agree to our <a href="#" className="underline hover:text-timewise-900">Terms of Service</a> and <a href="#" className="underline hover:text-timewise-900">Privacy Policy</a>.
+                Durch Absenden dieses Formulars stimmen Sie unseren <a href="#" className="underline hover:text-timewise-900">Nutzungsbedingungen</a> und <a href="#" className="underline hover:text-timewise-900">Datenschutzrichtlinien</a> zu.
               </p>
             </div>
           </div>

@@ -1,3 +1,4 @@
+
 import { ArrowRight } from "lucide-react";
 
 const Footer = () => {
@@ -17,15 +18,15 @@ const Footer = () => {
             </div>
             
             <p className="text-timewise-300 mb-6 max-w-md">
-              Timewise provides elegant solutions for time tracking and vacation management, designed with simplicity and compliance in mind.
+              Timewise bietet elegante Lösungen für Zeiterfassung und Urlaubsverwaltung, entwickelt mit Fokus auf Einfachheit und Compliance.
             </p>
             
             <div className="mb-8">
-              <p className="text-white font-medium mb-3">Subscribe to our newsletter</p>
+              <p className="text-white font-medium mb-3">Abonnieren Sie unseren Newsletter</p>
               <div className="flex">
                 <input 
                   type="email" 
-                  placeholder="Enter your email"
+                  placeholder="E-Mail-Adresse eingeben"
                   className="flex-1 px-4 py-2 rounded-l-lg bg-timewise-900 border border-timewise-800 text-white placeholder:text-timewise-500 focus:outline-none focus:ring-2 focus:ring-timewise-500/30"
                 />
                 <button className="bg-timewise-600 hover:bg-timewise-500 px-4 py-2 rounded-r-lg transition-colors">
@@ -36,42 +37,42 @@ const Footer = () => {
           </div>
           
           <div>
-            <h3 className="font-semibold text-white mb-4 text-lg">Product</h3>
+            <h3 className="font-semibold text-white mb-4 text-lg">Produkt</h3>
             <ul className="space-y-3">
-              <li><a href="#features" className="text-timewise-300 hover:text-white transition-colors">Features</a></li>
-              <li><a href="#pricing" className="text-timewise-300 hover:text-white transition-colors">Pricing</a></li>
-              <li><a href="#" className="text-timewise-300 hover:text-white transition-colors">Integrations</a></li>
+              <li><a href="#features" className="text-timewise-300 hover:text-white transition-colors">Funktionen</a></li>
+              <li><a href="#pricing" className="text-timewise-300 hover:text-white transition-colors">Preise</a></li>
+              <li><a href="#" className="text-timewise-300 hover:text-white transition-colors">Integrationen</a></li>
               <li><a href="#" className="text-timewise-300 hover:text-white transition-colors">Roadmap</a></li>
-              <li><a href="#" className="text-timewise-300 hover:text-white transition-colors">Changelog</a></li>
+              <li><a href="#" className="text-timewise-300 hover:text-white transition-colors">Änderungsprotokoll</a></li>
             </ul>
           </div>
           
           <div>
-            <h3 className="font-semibold text-white mb-4 text-lg">Resources</h3>
+            <h3 className="font-semibold text-white mb-4 text-lg">Ressourcen</h3>
             <ul className="space-y-3">
-              <li><a href="#" className="text-timewise-300 hover:text-white transition-colors">Documentation</a></li>
-              <li><a href="#" className="text-timewise-300 hover:text-white transition-colors">Help Center</a></li>
+              <li><a href="#" className="text-timewise-300 hover:text-white transition-colors">Dokumentation</a></li>
+              <li><a href="#" className="text-timewise-300 hover:text-white transition-colors">Hilfe-Center</a></li>
               <li><a href="#" className="text-timewise-300 hover:text-white transition-colors">Blog</a></li>
               <li><a href="#" className="text-timewise-300 hover:text-white transition-colors">Community</a></li>
-              <li><a href="#" className="text-timewise-300 hover:text-white transition-colors">Webinars</a></li>
+              <li><a href="#" className="text-timewise-300 hover:text-white transition-colors">Webinare</a></li>
             </ul>
           </div>
           
           <div>
-            <h3 className="font-semibold text-white mb-4 text-lg">Company</h3>
+            <h3 className="font-semibold text-white mb-4 text-lg">Unternehmen</h3>
             <ul className="space-y-3">
-              <li><a href="#" className="text-timewise-300 hover:text-white transition-colors">About Us</a></li>
-              <li><a href="#" className="text-timewise-300 hover:text-white transition-colors">Careers</a></li>
-              <li><a href="#contact" className="text-timewise-300 hover:text-white transition-colors">Contact</a></li>
-              <li><a href="#" className="text-timewise-300 hover:text-white transition-colors">Privacy Policy</a></li>
-              <li><a href="#" className="text-timewise-300 hover:text-white transition-colors">Terms of Service</a></li>
+              <li><a href="#" className="text-timewise-300 hover:text-white transition-colors">Über uns</a></li>
+              <li><a href="#" className="text-timewise-300 hover:text-white transition-colors">Karriere</a></li>
+              <li><a href="#contact" className="text-timewise-300 hover:text-white transition-colors">Kontakt</a></li>
+              <li><a href="#" className="text-timewise-300 hover:text-white transition-colors">Datenschutzrichtlinie</a></li>
+              <li><a href="#" className="text-timewise-300 hover:text-white transition-colors">Nutzungsbedingungen</a></li>
             </ul>
           </div>
         </div>
         
         <div className="mt-16 pt-8 border-t border-timewise-800 flex flex-col md:flex-row justify-between items-center">
           <div className="text-timewise-400 text-sm mb-4 md:mb-0">
-            &copy; {new Date().getFullYear()} Timewise. All rights reserved.
+            &copy; {new Date().getFullYear()} Timewise. Alle Rechte vorbehalten.
           </div>
           
           <div className="flex space-x-6">
