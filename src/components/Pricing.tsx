@@ -5,13 +5,12 @@ import { useState } from "react";
 
 const pricingPlans = [
   {
-    id: "starter",
-    name: "Starter",
+    id: "free",
+    name: "Free",
     description: "Perfect for small teams just getting started",
-    monthlyPrice: 9,
-    yearlyPrice: 7,
+    price: 0,
     features: [
-      "Up to 10 employees",
+      "Up to 3 users",
       "Time tracking",
       "Basic vacation management",
       "Standard reports",
@@ -28,53 +27,28 @@ const pricingPlans = [
     buttonVariant: "secondary" as const
   },
   {
-    id: "professional",
-    name: "Professional",
-    description: "Everything growing teams need",
-    monthlyPrice: 19,
-    yearlyPrice: 15,
+    id: "unlimited",
+    name: "Unlimited",
+    description: "Everything your growing team needs",
+    price: 14.99,
     features: [
-      "Up to 50 employees",
+      "Unlimited users",
       "Advanced time tracking",
       "Full vacation management",
       "Compliance features",
       "Custom approval workflows", 
-      "All standard reports",
-      "Priority email support"
-    ],
-    notIncluded: [
-      "API access",
       "Custom reports",
-      "Dedicated support"
-    ],
-    mostPopular: true,
-    buttonVariant: "primary" as const
-  },
-  {
-    id: "enterprise",
-    name: "Enterprise",
-    description: "Advanced features for larger organizations",
-    monthlyPrice: 39,
-    yearlyPrice: 32,
-    features: [
-      "Unlimited employees",
-      "Advanced time tracking",
-      "Full vacation management",
-      "Advanced compliance features",
-      "Custom approval workflows",
       "API access",
-      "Custom reports",
+      "Priority email support",
       "Dedicated support"
     ],
     notIncluded: [],
-    mostPopular: false,
-    buttonVariant: "secondary" as const
+    mostPopular: true,
+    buttonVariant: "primary" as const
   }
 ];
 
 const Pricing = () => {
-  const [billingCycle, setBillingCycle] = useState<"monthly" | "yearly">("yearly");
-  
   return (
     <section id="pricing" className="py-24 px-6 md:px-12 lg:px-24 bg-white relative">
       <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-timewise-200 to-transparent"></div>
@@ -88,41 +62,11 @@ const Pricing = () => {
             Transparent pricing for everyone
           </h2>
           <p className="text-timewise-700 max-w-2xl mx-auto">
-            Choose the plan that's right for your team. All plans include a 14-day free trial.
+            Free for small teams, affordable flat rate for everyone else. No hidden fees.
           </p>
-          
-          <div className="flex items-center justify-center mt-10">
-            <div className="inline-flex items-center p-1 bg-timewise-100 rounded-full">
-              <button
-                onClick={() => setBillingCycle("monthly")}
-                className={cn(
-                  "px-5 py-2 rounded-full text-sm font-medium transition-all duration-200",
-                  billingCycle === "monthly"
-                    ? "bg-white text-timewise-900 shadow-sm"
-                    : "text-timewise-600 hover:text-timewise-800"
-                )}
-              >
-                Monthly
-              </button>
-              <button
-                onClick={() => setBillingCycle("yearly")}
-                className={cn(
-                  "px-5 py-2 rounded-full text-sm font-medium transition-all duration-200",
-                  billingCycle === "yearly"
-                    ? "bg-white text-timewise-900 shadow-sm"
-                    : "text-timewise-600 hover:text-timewise-800"
-                )}
-              >
-                Yearly
-                <span className="ml-1 text-xs font-semibold text-timewise-600 bg-timewise-200 px-2 py-0.5 rounded-full">
-                  -20%
-                </span>
-              </button>
-            </div>
-          </div>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
           {pricingPlans.map((plan) => (
             <div 
               key={plan.id}
@@ -146,15 +90,12 @@ const Pricing = () => {
                 <div className="mb-8">
                   <div className="flex items-baseline">
                     <span className="text-4xl font-bold text-timewise-900">
-                      ${billingCycle === "monthly" ? plan.monthlyPrice : plan.yearlyPrice}
+                      ${plan.price}
                     </span>
-                    <span className="text-timewise-600 ml-2">per user / month</span>
+                    <span className="text-timewise-600 ml-2">
+                      {plan.price > 0 ? "per month" : "forever"}
+                    </span>
                   </div>
-                  {billingCycle === "yearly" && (
-                    <div className="text-sm text-timewise-500 mt-1">
-                      Billed annually (${plan.yearlyPrice * 12} per user)
-                    </div>
-                  )}
                 </div>
                 
                 <a 
@@ -166,7 +107,7 @@ const Pricing = () => {
                       : "button-secondary"
                   )}
                 >
-                  Start Free Trial
+                  {plan.price === 0 ? "Get Started Free" : "Start Free Trial"}
                 </a>
                 
                 <div className="space-y-4">
@@ -201,9 +142,9 @@ const Pricing = () => {
         </div>
         
         <div className="mt-16 text-center">
-          <p className="text-timewise-600 mb-4">Need a custom plan for your enterprise?</p>
+          <p className="text-timewise-600 mb-4">Have questions about our pricing?</p>
           <a href="#contact" className="text-timewise-700 font-medium hover:text-timewise-900 underline">
-            Contact our sales team for a tailored solution
+            Contact our team for more information
           </a>
         </div>
       </div>
