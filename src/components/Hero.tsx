@@ -12,38 +12,38 @@ const Hero = () => {
           <div className="flex-1 text-center lg:text-left">
             <div className="inline-flex items-center px-3 py-1.5 mb-8 border border-timewise-200 rounded-full bg-white shadow-sm animate-fade-in">
               <div className="w-2 h-2 rounded-full bg-timewise-500 mr-2"></div>
-              <span className="text-sm font-medium text-timewise-700">Konforme Zeiterfassung</span>
+              <span className="text-sm font-medium text-timewise-700">Gesetzeskonforme Zeiterfassung</span>
             </div>
             
             <h1 className="heading-xl mb-6 text-timewise-950 animate-slide-down">
-              Mühelose Zeiterfassung & Urlaubsverwaltung
+              Smarte Zeiterfassung & Urlaubsmanagement
             </h1>
             
             <p className="text-lg text-timewise-700 mb-8 max-w-xl mx-auto lg:mx-0 animate-slide-down animate-delay-100">
-              Einfache, konforme und erschwingliche Lösung zur Verwaltung der Arbeitszeit und Urlaube Ihres Teams. Schnell einzurichten, einfach zu bedienen.
+              Die smarte, gesetzeskonforme und preiswerte Lösung für dein Team. Schnell eingerichtet, simpel zu bedienen – und das zu einem fairen Preis.
             </p>
             
             <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 mb-12 animate-slide-down animate-delay-200">
               <a href="#contact" className="button-primary w-full sm:w-auto">
-                Kostenlos Testen
+                Kostenlos testen
               </a>
               <a href="#demo" className="button-secondary w-full sm:w-auto flex items-center justify-center gap-2 group">
-                Demo Ansehen <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                Demo ansehen <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
               </a>
             </div>
             
             <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-6 animate-slide-down animate-delay-300">
               <div className="flex items-center gap-2">
                 <Clock className="h-5 w-5 text-timewise-600" />
-                <span className="text-sm text-timewise-700">Schnelle Einrichtung</span>
+                <span className="text-sm text-timewise-700">Blitzschnell eingerichtet</span>
               </div>
               <div className="flex items-center gap-2">
                 <Calendar className="h-5 w-5 text-timewise-600" />
-                <span className="text-sm text-timewise-700">Vereinfachte Planung</span>
+                <span className="text-sm text-timewise-700">Smarte Planung</span>
               </div>
               <div className="flex items-center gap-2">
                 <Shield className="h-5 w-5 text-timewise-600" />
-                <span className="text-sm text-timewise-700">Gesetzeskonform</span>
+                <span className="text-sm text-timewise-700">100% gesetzeskonform</span>
               </div>
             </div>
           </div>
@@ -61,11 +61,11 @@ const Hero = () => {
                   <div className="absolute inset-0 bg-gradient-to-tr from-timewise-950/5 to-transparent rounded-tl-3xl rounded-tr-3xl"></div>
                 </div>
                 <div className="p-8 bg-white/90 backdrop-blur-sm">
-                  <h3 className="text-xl font-semibold text-timewise-900 mb-4">Intuitives Dashboard für alle Ihre Bedürfnisse</h3>
-                  <p className="text-timewise-700 mb-5">Zeiterfassung, Urlaubsverwaltung, Berichterstellung, alles an einem Ort.</p>
+                  <h3 className="text-xl font-semibold text-timewise-900 mb-4">Intuitives Dashboard für alle Bedürfnisse</h3>
+                  <p className="text-timewise-700 mb-5">Zeiterfassung, Urlaubsmanagement und Reporting – alles an einem Ort.</p>
                   <div className="flex justify-end">
                     <button className="text-sm font-medium text-timewise-600 hover:text-timewise-800 transition-colors flex items-center gap-1">
-                      Funktionen entdecken <ArrowRight className="h-4 w-4" />
+                      Features entdecken <ArrowRight className="h-4 w-4" />
                     </button>
                   </div>
                 </div>

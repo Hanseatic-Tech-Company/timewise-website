@@ -7,40 +7,40 @@ const pricingPlans = [
   {
     id: "free",
     name: "Kostenlos",
-    description: "Perfekt für kleine Teams, die gerade erst anfangen",
+    description: "Perfekt für kleine Teams, die gerade starten",
     price: 0,
     features: [
-      "Bis zu 3 Benutzer",
+      "Bis zu 3 User",
       "Zeiterfassung",
-      "Grundlegende Urlaubsverwaltung",
-      "Standardberichte",
+      "Basis-Urlaubsmanagement",
+      "Standard-Reports",
       "E-Mail-Support"
     ],
     notIncluded: [
-      "Erweiterte Compliance-Funktionen",
-      "Benutzerdefinierte Genehmigungsabläufe",
+      "Erweiterte Compliance-Features",
+      "Custom Approval-Workflows",
       "API-Zugriff",
-      "Benutzerdefinierte Berichte",
-      "Dedizierter Support"
+      "Custom Reports",
+      "Premium-Support"
     ],
     mostPopular: false,
     buttonVariant: "secondary" as const
   },
   {
     id: "unlimited",
-    name: "Unbegrenzt",
-    description: "Alles, was Ihr wachsendes Team braucht",
+    name: "Unlimited",
+    description: "Alles, was dein wachsendes Team braucht",
     price: 14.99,
     features: [
-      "Unbegrenzte Benutzer",
-      "Erweiterte Zeiterfassung",
-      "Vollständige Urlaubsverwaltung",
-      "Compliance-Funktionen",
-      "Benutzerdefinierte Genehmigungsabläufe", 
-      "Benutzerdefinierte Berichte",
+      "Unlimited Users",
+      "Advanced Zeiterfassung",
+      "Premium Urlaubsmanagement",
+      "Compliance-Features",
+      "Custom Approval-Workflows", 
+      "Custom Reports",
       "API-Zugriff",
-      "Prioritäts-E-Mail-Support",
-      "Dedizierter Support"
+      "Prioritäts-Support",
+      "Dedicated Support"
     ],
     notIncluded: [],
     mostPopular: true,
@@ -56,13 +56,13 @@ const Pricing = () => {
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <div className="inline-flex items-center px-3 py-1.5 mb-6 border border-timewise-200 rounded-full bg-white shadow-sm">
-            <span className="text-sm font-medium text-timewise-700">Einfache Preisgestaltung</span>
+            <span className="text-sm font-medium text-timewise-700">Einfache Preise</span>
           </div>
           <h2 className="heading-lg text-timewise-950 mb-6">
-            Transparente Preise für alle
+            Transparente Preise ohne Schnickschnack
           </h2>
           <p className="text-timewise-700 max-w-2xl mx-auto">
-            Kostenlos für kleine Teams, erschwinglicher Festpreis für alle anderen. Keine versteckten Gebühren.
+            Kostenlos für kleine Teams, fair für alle anderen. Keine versteckten Kosten.
           </p>
         </div>
         
@@ -79,7 +79,7 @@ const Pricing = () => {
             >
               {plan.mostPopular && (
                 <div className="absolute top-0 right-0 bg-timewise-500 text-white text-xs font-bold py-1.5 px-4 rounded-bl-lg">
-                  Am beliebtesten
+                  Bestseller
                 </div>
               )}
               
@@ -107,11 +107,11 @@ const Pricing = () => {
                       : "button-secondary"
                   )}
                 >
-                  {plan.price === 0 ? "Kostenlos Starten" : "Kostenlos Testen"}
+                  {plan.price === 0 ? "Kostenlos starten" : "14 Tage testen"}
                 </a>
                 
                 <div className="space-y-4">
-                  <p className="text-sm font-medium text-timewise-900">Enthält:</p>
+                  <p className="text-sm font-medium text-timewise-900">Inkludiert:</p>
                   
                   <div className="space-y-3">
                     {plan.features.map((feature, idx) => (
@@ -142,9 +142,9 @@ const Pricing = () => {
         </div>
         
         <div className="mt-16 text-center">
-          <p className="text-timewise-600 mb-4">Haben Sie Fragen zu unseren Preisen?</p>
+          <p className="text-timewise-600 mb-4">Fragen zu den Preisen?</p>
           <a href="#contact" className="text-timewise-700 font-medium hover:text-timewise-900 underline">
-            Kontaktieren Sie unser Team für weitere Informationen
+            Kontaktiere unser Team für weitere Infos
           </a>
         </div>
       </div>

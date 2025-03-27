@@ -1,3 +1,4 @@
+
 import { useState, useEffect, useRef } from "react";
 import { 
   Clock, 
@@ -15,13 +16,13 @@ const features = [
   {
     id: "time-tracking",
     icon: <Clock className="h-6 w-6" />,
-    title: "Effortless Time Tracking",
-    description: "Track working hours with minimal effort. Our intuitive interface makes it easy for employees to log time accurately.",
+    title: "Einfache Zeiterfassung",
+    description: "Tracke Arbeitszeiten mit minimalem Aufwand. Unsere intuitive Oberfläche macht es für Mitarbeiter leicht, ihre Zeit genau zu erfassen.",
     benefits: [
-      "One-click time tracking",
-      "Automatic breaks calculation",
-      "Overtime monitoring",
-      "Mobile-friendly interface"
+      "One-Click Zeiterfassung",
+      "Automatische Pausenberechnung",
+      "Überstunden-Tracking",
+      "Mobile-friendly Interface"
     ],
     color: "from-timewise-500/20 to-timewise-500/5",
     image: "/time-tracking-mockup.png"
@@ -29,13 +30,13 @@ const features = [
   {
     id: "vacation-management",
     icon: <Calendar className="h-6 w-6" />,
-    title: "Simplified Vacation Management",
-    description: "Manage time off requests effortlessly. Employees can request vacations, and managers can approve with just a click.",
+    title: "Smarte Urlaubsverwaltung",
+    description: "Verwalte Urlaubsanträge mühelos. Mitarbeiter können Urlaub beantragen und Manager mit nur einem Klick genehmigen.",
     benefits: [
-      "Automated vacation balance",
-      "Approval workflows",
-      "Calendar integration",
-      "Leave history tracking"
+      "Automatische Urlaubsberechnung",
+      "Smarte Genehmigungsprozesse",
+      "Kalender-Integration",
+      "Übersichtliche Verlaufsansicht"
     ],
     color: "from-timewise-600/20 to-timewise-600/5",
     image: "/vacation-calendar-mockup.png"
@@ -43,13 +44,13 @@ const features = [
   {
     id: "compliance",
     icon: <Shield className="h-6 w-6" />,
-    title: "Legal Compliance Guaranteed",
-    description: "Stay compliant with labor laws and regulations. Our system ensures you're always on the right side of the law.",
+    title: "Rechtssicherheit garantiert",
+    description: "Bleib immer konform mit Arbeitsgesetzen und Vorschriften. Unser System stellt sicher, dass du immer auf der sicheren Seite bist.",
     benefits: [
-      "Up-to-date legal requirements",
-      "Automatic compliance checks",
-      "Audit-ready reports",
-      "Data protection built-in"
+      "Aktuelle gesetzliche Anforderungen",
+      "Automatische Compliance-Checks",
+      "Audit-ready Reports",
+      "Integrierter Datenschutz"
     ],
     color: "from-timewise-700/20 to-timewise-700/5",
     image: "/compliance-report-mockup.png"
@@ -57,13 +58,13 @@ const features = [
   {
     id: "reporting",
     icon: <BarChart4 className="h-6 w-6" />,
-    title: "Comprehensive Reporting",
-    description: "Generate detailed reports on time spent, vacation usage, and productivity metrics to optimize your workforce.",
+    title: "Umfassendes Reporting",
+    description: "Erstelle detaillierte Berichte zu Arbeitszeiten, Urlaubsnutzung und Produktivitätsmetriken, um dein Team zu optimieren.",
     benefits: [
-      "Customizable report templates",
-      "Export to various formats",
-      "Visual data representation",
-      "Scheduled report delivery"
+      "Anpassbare Report-Templates",
+      "Export in verschiedene Formate",
+      "Visuelle Datenaufbereitung",
+      "Automatisierte Berichtslieferung"
     ],
     color: "from-timewise-800/20 to-timewise-800/5",
     image: "/analytics-dashboard-mockup.png"
@@ -122,15 +123,15 @@ const Features = () => {
       <div className="absolute -top-10 left-1/2 -translate-x-1/2 h-20 w-20 bg-timewise-100 rounded-full blur-3xl opacity-70 -z-10"></div>
       
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-16">
+        <div id="why-choose" className="text-center mb-16">
           <div className="inline-flex items-center px-3 py-1.5 mb-6 border border-timewise-200 rounded-full bg-white shadow-sm">
-            <span className="text-sm font-medium text-timewise-700">Why choose Timewise</span>
+            <span className="text-sm font-medium text-timewise-700">Warum Timewise?</span>
           </div>
           <h2 className="heading-lg text-timewise-950 mb-6">
-            All you need for efficient time management
+            Alles, was du für effizientes Zeitmanagement brauchst
           </h2>
           <p className="text-timewise-700 max-w-2xl mx-auto">
-            Timewise combines powerful features with an intuitive interface, making time tracking and vacation management a breeze.
+            Timewise kombiniert leistungsstarke Funktionen mit einer intuitiven Oberfläche und macht Zeiterfassung und Urlaubsmanagement zum Kinderspiel.
           </p>
         </div>
         
@@ -210,37 +211,38 @@ const Features = () => {
         </div>
         
         <div className="mt-24 border border-timewise-200 rounded-2xl p-8 md:p-12 bg-gradient-to-br from-white to-timewise-50/50">
+          <h2 className="text-2xl font-bold text-timewise-950 text-center mb-8">Warum sich Teams für Timewise entscheiden</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 md:gap-6">
             <div className="text-center">
               <div className="w-14 h-14 bg-timewise-100 rounded-xl flex items-center justify-center mx-auto mb-4">
                 <Zap className="h-6 w-6 text-timewise-600" />
               </div>
-              <h3 className="text-lg font-semibold text-timewise-900 mb-2">Quick Setup</h3>
-              <p className="text-timewise-700 text-sm">Be up and running in minutes, not days</p>
+              <h3 className="text-lg font-semibold text-timewise-900 mb-2">Blitzschnelles Setup</h3>
+              <p className="text-timewise-700 text-sm">In Minuten startklar, nicht in Tagen</p>
             </div>
             
             <div className="text-center">
               <div className="w-14 h-14 bg-timewise-100 rounded-xl flex items-center justify-center mx-auto mb-4">
                 <Shield className="h-6 w-6 text-timewise-600" />
               </div>
-              <h3 className="text-lg font-semibold text-timewise-900 mb-2">100% Compliant</h3>
-              <p className="text-timewise-700 text-sm">Always in line with labor laws</p>
+              <h3 className="text-lg font-semibold text-timewise-900 mb-2">100% Rechtssicher</h3>
+              <p className="text-timewise-700 text-sm">Immer konform mit Arbeitsrecht</p>
             </div>
             
             <div className="text-center">
               <div className="w-14 h-14 bg-timewise-100 rounded-xl flex items-center justify-center mx-auto mb-4">
                 <FileText className="h-6 w-6 text-timewise-600" />
               </div>
-              <h3 className="text-lg font-semibold text-timewise-900 mb-2">Detailed Reports</h3>
-              <p className="text-timewise-700 text-sm">Get insights with comprehensive reports</p>
+              <h3 className="text-lg font-semibold text-timewise-900 mb-2">Smart Reporting</h3>
+              <p className="text-timewise-700 text-sm">Gewinne Insights durch umfassende Reports</p>
             </div>
             
             <div className="text-center">
               <div className="w-14 h-14 bg-timewise-100 rounded-xl flex items-center justify-center mx-auto mb-4">
                 <Calendar className="h-6 w-6 text-timewise-600" />
               </div>
-              <h3 className="text-lg font-semibold text-timewise-900 mb-2">Vacation Planning</h3>
-              <p className="text-timewise-700 text-sm">Simplify leave management for everyone</p>
+              <h3 className="text-lg font-semibold text-timewise-900 mb-2">Urlaubsplanung</h3>
+              <p className="text-timewise-700 text-sm">Vereinfachtes Abwesenheitsmanagement</p>
             </div>
           </div>
         </div>
