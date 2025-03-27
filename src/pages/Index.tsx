@@ -8,9 +8,11 @@ import FAQ from "@/components/FAQ";
 import CTA from "@/components/CTA";
 import Footer from "@/components/Footer";
 import MockupImages from "@/components/MockupImages";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 const Index = () => {
+  const [imagesLoaded, setImagesLoaded] = useState(false);
+
   // Smooth scroll for anchor links
   useEffect(() => {
     const handleAnchorLinkClick = (e: MouseEvent) => {
@@ -32,8 +34,14 @@ const Index = () => {
     
     document.addEventListener('click', handleAnchorLinkClick);
     
+    // Set images as loaded after a short delay to ensure canvas rendering is complete
+    const timer = setTimeout(() => {
+      setImagesLoaded(true);
+    }, 500);
+    
     return () => {
       document.removeEventListener('click', handleAnchorLinkClick);
+      clearTimeout(timer);
     };
   }, []);
 

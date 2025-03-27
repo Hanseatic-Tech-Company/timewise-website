@@ -72,6 +72,7 @@ const features = [
 
 const Features = () => {
   const [activeFeature, setActiveFeature] = useState(features[0].id);
+  const [currentImage, setCurrentImage] = useState(features[0].image);
   const featureRefs = useRef<(HTMLDivElement | null)[]>([]);
   
   useEffect(() => {
@@ -94,6 +95,14 @@ const Features = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
   
+  // Update current image when active feature changes
+  useEffect(() => {
+    const feature = features.find(f => f.id === activeFeature);
+    if (feature) {
+      setCurrentImage(feature.image);
+    }
+  }, [activeFeature]);
+
   const currentFeature = features.find(f => f.id === activeFeature) || features[0];
 
   return (
@@ -156,7 +165,8 @@ const Features = () => {
             <div className="glass-card rounded-3xl overflow-hidden border border-timewise-200/50 shadow-xl">
               <div className="relative h-64 md:h-72 lg:h-80 overflow-hidden">
                 <img 
-                  src={currentFeature.image}
+                  key={currentImage}
+                  src={currentImage}
                   alt={currentFeature.title}
                   className="w-full h-full object-cover object-center"
                 />
