@@ -34,10 +34,11 @@ const Index = () => {
     
     document.addEventListener('click', handleAnchorLinkClick);
     
-    // Set images as loaded after a short delay to ensure canvas rendering is complete
+    // Set images as loaded after a longer delay to ensure canvas rendering is complete
     const timer = setTimeout(() => {
       setImagesLoaded(true);
-    }, 500);
+      console.log("Images should be loaded now");
+    }, 1000);
     
     return () => {
       document.removeEventListener('click', handleAnchorLinkClick);
@@ -57,6 +58,7 @@ const Index = () => {
         <CTA />
       </main>
       <Footer />
+      {/* Render mockups first, then make them visible */}
       <MockupImages />
     </div>
   );

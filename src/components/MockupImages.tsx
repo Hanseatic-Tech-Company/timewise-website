@@ -1,4 +1,5 @@
-import React, { useEffect } from 'react';
+
+import React, { useEffect, useRef } from 'react';
 
 const createTimeTrackingMockup = (canvas: HTMLCanvasElement) => {
   const ctx = canvas.getContext('2d');
@@ -799,7 +800,11 @@ const createDashboardMockup = (canvas: HTMLCanvasElement) => {
 };
 
 const MockupImages: React.FC = () => {
+  const canvasesRendered = useRef(false);
+  
   useEffect(() => {
+    if (canvasesRendered.current) return;
+    
     // Find all canvas elements
     const dashboardCanvas = document.getElementById('dashboard-mockup') as HTMLCanvasElement;
     const timeTrackingCanvas = document.getElementById('time-tracking-mockup') as HTMLCanvasElement;
@@ -814,64 +819,60 @@ const MockupImages: React.FC = () => {
     if (complianceCanvas) createComplianceMockup(complianceCanvas);
     if (analyticsCanvas) createAnalyticsMockup(analyticsCanvas);
     
-    // Save canvas images to the public URLs
-    if (dashboardCanvas) {
-      try {
-        const img = dashboardCanvas.toDataURL('image/png');
+    // Convert canvases to image sources
+    setTimeout(() => {
+      updateImageSources();
+      canvasesRendered.current = true;
+    }, 500);
+  }, []);
+  
+  const updateImageSources = () => {
+    try {
+      updateImgSrc('dashboard-mockup', '/dashboard-mockup.png');
+      updateImgSrc('time-tracking-mockup', '/time-tracking-mockup.png');
+      updateImgSrc('vacation-calendar-mockup', '/vacation-calendar-mockup.png');
+      updateImgSrc('compliance-report-mockup', '/compliance-report-mockup.png');
+      updateImgSrc('analytics-dashboard-mockup', '/analytics-dashboard-mockup.png');
+      
+      console.log("All mockup images updated successfully!");
+    } catch (e) {
+      console.error('Error updating image sources:', e);
+    }
+  };
+  
+  const updateImgSrc = (canvasId: string, imgSrc: string) => {
+    try {
+      const canvas = document.getElementById(canvasId) as HTMLCanvasElement;
+      if (!canvas) {
+        console.error(`Canvas not found: ${canvasId}`);
+        return;
+      }
+      
+      const dataUrl = canvas.toDataURL('image/png');
+      
+      // Find all images with this source and update them
+      const images = document.querySelectorAll(`img[src="${imgSrc}"]`);
+      
+      if (images.length === 0) {
+        // If no images are found, create a link preload to ensure the data URL is available
         const link = document.createElement('link');
         link.rel = 'preload';
-        link.href = img;
+        link.href = dataUrl;
         link.as = 'image';
         document.head.appendChild(link);
         
-        // Replace image src with canvas data URL
-        const dashboardImg = document.querySelector('img[src="/dashboard-mockup.png"]') as HTMLImageElement;
-        if (dashboardImg) dashboardImg.src = img;
-      } catch (e) {
-        console.error('Error creating dashboard mockup:', e);
+        // Also add this to sessionStorage for faster retrieval
+        sessionStorage.setItem(imgSrc, dataUrl);
       }
+      
+      images.forEach((img: Element) => {
+        (img as HTMLImageElement).src = dataUrl;
+        console.log(`Updated image source for ${imgSrc}`);
+      });
+    } catch (e) {
+      console.error(`Error updating image source for ${canvasId}:`, e);
     }
-    
-    if (timeTrackingCanvas) {
-      try {
-        const img = timeTrackingCanvas.toDataURL('image/png');
-        const timeTrackingImg = document.querySelector('img[src="/time-tracking-mockup.png"]') as HTMLImageElement;
-        if (timeTrackingImg) timeTrackingImg.src = img;
-      } catch (e) {
-        console.error('Error creating time tracking mockup:', e);
-      }
-    }
-    
-    if (vacationCanvas) {
-      try {
-        const img = vacationCanvas.toDataURL('image/png');
-        const vacationImg = document.querySelector('img[src="/vacation-calendar-mockup.png"]') as HTMLImageElement;
-        if (vacationImg) vacationImg.src = img;
-      } catch (e) {
-        console.error('Error creating vacation mockup:', e);
-      }
-    }
-    
-    if (complianceCanvas) {
-      try {
-        const img = complianceCanvas.toDataURL('image/png');
-        const complianceImg = document.querySelector('img[src="/compliance-report-mockup.png"]') as HTMLImageElement;
-        if (complianceImg) complianceImg.src = img;
-      } catch (e) {
-        console.error('Error creating compliance mockup:', e);
-      }
-    }
-    
-    if (analyticsCanvas) {
-      try {
-        const img = analyticsCanvas.toDataURL('image/png');
-        const analyticsImg = document.querySelector('img[src="/analytics-dashboard-mockup.png"]') as HTMLImageElement;
-        if (analyticsImg) analyticsImg.src = img;
-      } catch (e) {
-        console.error('Error creating analytics mockup:', e);
-      }
-    }
-  }, []);
+  };
   
   return (
     <div className="hidden">

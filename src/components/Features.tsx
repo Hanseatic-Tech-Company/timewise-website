@@ -72,8 +72,17 @@ const features = [
 
 const Features = () => {
   const [activeFeature, setActiveFeature] = useState(features[0].id);
-  const [currentImage, setCurrentImage] = useState(features[0].image);
+  const [imageLoaded, setImageLoaded] = useState(false);
   const featureRefs = useRef<(HTMLDivElement | null)[]>([]);
+  
+  // Use an effect to create canvas images once when component mounts
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setImageLoaded(true);
+    }, 800);
+    
+    return () => clearTimeout(timer);
+  }, []);
   
   useEffect(() => {
     const handleScroll = () => {
@@ -94,16 +103,14 @@ const Features = () => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-  
-  // Update current image when active feature changes
-  useEffect(() => {
-    const feature = features.find(f => f.id === activeFeature);
-    if (feature) {
-      setCurrentImage(feature.image);
-    }
-  }, [activeFeature]);
 
   const currentFeature = features.find(f => f.id === activeFeature) || features[0];
+  
+  // Force a re-render when switching features
+  const forceImageReload = () => {
+    setImageLoaded(false);
+    setTimeout(() => setImageLoaded(true), 50);
+  };
 
   return (
     <section id="features" className="py-24 px-6 md:px-12 lg:px-24 bg-white relative">
@@ -136,7 +143,10 @@ const Features = () => {
                       ? "border-timewise-500 bg-gradient-to-br from-timewise-50 to-white shadow-sm"
                       : "border-gray-200 hover:border-timewise-300 hover:bg-timewise-50/50"
                   )}
-                  onClick={() => setActiveFeature(feature.id)}
+                  onClick={() => {
+                    setActiveFeature(feature.id);
+                    forceImageReload();
+                  }}
                 >
                   <div className="flex items-start">
                     <div className={cn(
@@ -164,12 +174,19 @@ const Features = () => {
             )}></div>
             <div className="glass-card rounded-3xl overflow-hidden border border-timewise-200/50 shadow-xl">
               <div className="relative h-64 md:h-72 lg:h-80 overflow-hidden">
-                <img 
-                  key={currentImage}
-                  src={currentImage}
-                  alt={currentFeature.title}
-                  className="w-full h-full object-cover object-center"
-                />
+                {imageLoaded && (
+                  <img 
+                    key={currentFeature.id} 
+                    src={currentFeature.image}
+                    alt={currentFeature.title}
+                    className="w-full h-full object-cover object-center"
+                    onError={(e) => {
+                      console.error(`Failed to load image: ${currentFeature.image}`);
+                      const target = e.target as HTMLImageElement;
+                      target.src = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23f1f5f9'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='14' fill='%2364748b'%3EImage%3C/text%3E%3C/svg%3E";
+                    }}
+                  />
+                )}
                 <div className="absolute inset-0 bg-gradient-to-t from-white/90 via-white/30 to-transparent"></div>
               </div>
               
