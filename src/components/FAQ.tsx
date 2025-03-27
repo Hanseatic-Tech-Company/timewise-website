@@ -1,8 +1,25 @@
 
-import { useState } from "react";
+import React, { memo } from "react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
 import { HelpCircle } from "lucide-react";
+
+// Memoize individual FAQ items for better performance
+const FaqItem = memo(({ faq, index }: { faq: { question: string; answer: string }; index: number }) => (
+  <AccordionItem 
+    value={`item-${index}`}
+    className="border rounded-xl overflow-hidden bg-white/80 hover:border-timewise-200 data-[state=open]:border-timewise-300 data-[state=open]:shadow-md data-[state=open]:bg-white mb-4"
+  >
+    <AccordionTrigger className="px-6 py-4 font-semibold text-timewise-900 hover:no-underline">
+      {faq.question}
+    </AccordionTrigger>
+    <AccordionContent className="px-6 text-timewise-700">
+      {faq.answer}
+    </AccordionContent>
+  </AccordionItem>
+));
+
+FaqItem.displayName = "FaqItem";
 
 const faqs = [
   {
@@ -40,16 +57,6 @@ const faqs = [
 ];
 
 const FAQ = () => {
-  const [openItems, setOpenItems] = useState<string[]>([]);
-
-  const handleAccordionChange = (value: string) => {
-    setOpenItems(prev => 
-      prev.includes(value) 
-        ? prev.filter(item => item !== value)
-        : [...prev, value]
-    );
-  };
-
   return (
     <section id="faq" className="py-24 px-6 md:px-12 lg:px-24 bg-timewise-50 relative">
       <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-timewise-200 to-transparent"></div>
@@ -72,28 +79,11 @@ const FAQ = () => {
         <div className="space-y-4">
           <Accordion 
             type="multiple" 
-            value={openItems}
-            onValueChange={setOpenItems}
+            defaultValue={[]}
             className="w-full"
           >
             {faqs.map((faq, index) => (
-              <AccordionItem 
-                key={index} 
-                value={`item-${index}`}
-                className="border rounded-xl overflow-hidden bg-white/80 hover:border-timewise-200 data-[state=open]:border-timewise-300 data-[state=open]:shadow-md data-[state=open]:bg-white mb-4"
-              >
-                <AccordionTrigger 
-                  onClick={() => handleAccordionChange(`item-${index}`)}
-                  className="px-6 py-4 font-semibold text-timewise-900 hover:no-underline"
-                >
-                  {faq.question}
-                </AccordionTrigger>
-                <AccordionContent 
-                  className="px-6 pb-4 text-timewise-700 transition-all ease-in-out duration-300"
-                >
-                  {faq.answer}
-                </AccordionContent>
-              </AccordionItem>
+              <FaqItem key={index} faq={faq} index={index} />
             ))}
           </Accordion>
         </div>
@@ -114,4 +104,4 @@ const FAQ = () => {
   );
 };
 
-export default FAQ;
+export default React.memo(FAQ);
