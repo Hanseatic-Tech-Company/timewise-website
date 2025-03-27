@@ -1,13 +1,12 @@
 
-import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
     <footer className="bg-timewise-950 text-white">
       <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-24 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
-          <div className="lg:col-span-1">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+          <div className="md:col-span-1">
             <div className="flex items-center space-x-2 mb-6">
               <div className="h-8 w-8 rounded-md bg-white flex items-center justify-center">
                 <div className="relative w-5 h-5">
@@ -40,21 +39,6 @@ const Footer = () => {
               <li><Link to="/rechtliches#nutzungsbedingungen" className="text-timewise-300 hover:text-white transition-colors">Nutzungsbedingungen</Link></li>
               <li><Link to="/rechtliches#impressum" className="text-timewise-300 hover:text-white transition-colors">Impressum</Link></li>
             </ul>
-          </div>
-          
-          <div>
-            <h3 className="font-semibold text-white mb-4 text-lg">Newsletter</h3>
-            <p className="text-timewise-300 mb-4">Erhalten Sie Updates zu neuen Features und Angeboten.</p>
-            <div className="flex">
-              <input 
-                type="email" 
-                placeholder="E-Mail-Adresse"
-                className="flex-1 px-4 py-2 rounded-l-lg bg-timewise-900 border border-timewise-800 text-white placeholder:text-timewise-500 focus:outline-none focus:ring-2 focus:ring-timewise-500/30"
-              />
-              <button className="bg-timewise-600 hover:bg-timewise-500 px-4 py-2 rounded-r-lg transition-colors">
-                <ArrowRight size={18} />
-              </button>
-            </div>
           </div>
         </div>
         
