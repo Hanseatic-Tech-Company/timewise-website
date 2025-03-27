@@ -31,7 +31,10 @@ const Navbar = () => {
           aria-label="Timewise Logo"
         >
           <div className="h-8 w-8 rounded-md bg-gradient-to-tr from-timewise-700 to-timewise-500 flex items-center justify-center">
-            <span className="text-white font-bold text-lg">T</span>
+            <div className="relative w-5 h-5">
+              <div className="absolute top-0 left-0 w-3 h-3 bg-white rounded-full"></div>
+              <div className="absolute bottom-0 right-0 w-3 h-3 bg-white rounded-full"></div>
+            </div>
           </div>
           <span className="font-display font-bold text-xl text-timewise-900">Timewise</span>
         </a>
