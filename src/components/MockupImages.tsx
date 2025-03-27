@@ -821,7 +821,7 @@ const storeCanvasAsImage = (canvasId: string, imagePath: string) => {
   }
 };
 
-const getStoredImage = (imagePath: string): string => {
+export const getStoredImage = (imagePath: string): string => {
   const storedImage = sessionStorage.getItem(imagePath);
   if (storedImage) {
     return storedImage;

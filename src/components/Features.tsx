@@ -1,4 +1,3 @@
-
 import { useState, useEffect, useRef } from "react";
 import { 
   Clock, 
@@ -10,7 +9,7 @@ import {
   CheckCircle2
 } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { getStoredImage } from "./MockupImages";
+import MockupImages, { getStoredImage } from "./MockupImages";
 
 const features = [
   {
@@ -75,9 +74,8 @@ const Features = () => {
   const [activeFeature, setActiveFeature] = useState(features[0].id);
   const [imageLoaded, setImageLoaded] = useState(false);
   const featureRefs = useRef<(HTMLDivElement | null)[]>([]);
-  const [imageKey, setImageKey] = useState(0); // Add a key to force re-render of image
-  
-  // Use an effect to create canvas images once when component mounts
+  const [imageKey, setImageKey] = useState(0);
+
   useEffect(() => {
     const timer = setTimeout(() => {
       setImageLoaded(true);
@@ -85,7 +83,7 @@ const Features = () => {
     
     return () => clearTimeout(timer);
   }, []);
-  
+
   useEffect(() => {
     const handleScroll = () => {
       const scrollPosition = window.scrollY + window.innerHeight / 2;
@@ -107,15 +105,13 @@ const Features = () => {
   }, []);
 
   const currentFeature = features.find(f => f.id === activeFeature) || features[0];
-  
-  // Force a re-render when switching features
+
   const forceImageReload = () => {
     setImageLoaded(false);
-    setImageKey(prevKey => prevKey + 1); // Change the key to force a re-render
+    setImageKey(prevKey => prevKey + 1);
     setTimeout(() => setImageLoaded(true), 50);
   };
 
-  // Function to get stored image from sessionStorage
   const getFeatureImage = (path: string) => {
     return getStoredImage(path);
   };
