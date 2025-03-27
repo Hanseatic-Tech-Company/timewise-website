@@ -89,7 +89,7 @@ const Testimonials = () => {
         <div className="relative">
           <div 
             ref={sliderRef}
-            className="overflow-hidden relative"
+            className="overflow-hidden relative pb-8"
           >
             <div 
               className="flex transition-transform duration-500 ease-out"
@@ -98,7 +98,7 @@ const Testimonials = () => {
               {testimonials.map((testimonial) => (
                 <div 
                   key={testimonial.id}
-                  className="w-full flex-shrink-0 px-4"
+                  className="w-full flex-shrink-0 px-4 py-2"
                 >
                   <div className="bg-white rounded-3xl shadow-lg border border-timewise-100 overflow-hidden max-w-4xl mx-auto p-8 md:p-12">
                     <div className="flex mb-6">
@@ -130,7 +130,7 @@ const Testimonials = () => {
             </div>
           </div>
           
-          <div className="mt-12 flex justify-center items-center gap-6">
+          <div className="mt-8 flex justify-center items-center gap-6">
             <button
               onClick={prev}
               className="w-10 h-10 rounded-full border border-timewise-300 bg-white flex items-center justify-center text-timewise-600 hover:bg-timewise-50 hover:text-timewise-800 transition-all shadow-sm"
