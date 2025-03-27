@@ -1,6 +1,8 @@
 
+import { useState } from "react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
+import { HelpCircle } from "lucide-react";
 
 const faqs = [
   {
@@ -38,6 +40,16 @@ const faqs = [
 ];
 
 const FAQ = () => {
+  const [openItems, setOpenItems] = useState<string[]>([]);
+
+  const handleAccordionChange = (value: string) => {
+    setOpenItems(prev => 
+      prev.includes(value) 
+        ? prev.filter(item => item !== value)
+        : [...prev, value]
+    );
+  };
+
   return (
     <section id="faq" className="py-24 px-6 md:px-12 lg:px-24 bg-timewise-50 relative">
       <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-timewise-200 to-transparent"></div>
@@ -46,6 +58,7 @@ const FAQ = () => {
       <div className="max-w-5xl mx-auto">
         <div className="text-center mb-16">
           <div className="inline-flex items-center px-3 py-1.5 mb-6 border border-timewise-200 rounded-full bg-white shadow-sm">
+            <HelpCircle className="w-4 h-4 mr-2 text-timewise-700" />
             <span className="text-sm font-medium text-timewise-700">Häufige Fragen</span>
           </div>
           <h2 className="heading-lg text-timewise-950 mb-6">
@@ -57,17 +70,27 @@ const FAQ = () => {
         </div>
         
         <div className="space-y-4">
-          <Accordion type="single" collapsible className="w-full">
+          <Accordion 
+            type="multiple" 
+            value={openItems}
+            onValueChange={setOpenItems}
+            className="w-full"
+          >
             {faqs.map((faq, index) => (
               <AccordionItem 
                 key={index} 
                 value={`item-${index}`}
-                className="border rounded-xl overflow-hidden bg-white/80 hover:border-timewise-200 data-[state=open]:border-timewise-300 data-[state=open]:shadow-md data-[state=open]:bg-white"
+                className="border rounded-xl overflow-hidden bg-white/80 hover:border-timewise-200 data-[state=open]:border-timewise-300 data-[state=open]:shadow-md data-[state=open]:bg-white mb-4"
               >
-                <AccordionTrigger className="px-6 py-4 font-semibold text-timewise-900 hover:no-underline">
+                <AccordionTrigger 
+                  onClick={() => handleAccordionChange(`item-${index}`)}
+                  className="px-6 py-4 font-semibold text-timewise-900 hover:no-underline"
+                >
                   {faq.question}
                 </AccordionTrigger>
-                <AccordionContent className="px-6 pb-4 text-timewise-700">
+                <AccordionContent 
+                  className="px-6 pb-4 text-timewise-700 transition-all ease-in-out duration-300"
+                >
                   {faq.answer}
                 </AccordionContent>
               </AccordionItem>
