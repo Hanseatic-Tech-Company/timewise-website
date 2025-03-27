@@ -52,11 +52,14 @@ const Hero = () => {
             <div className="relative">
               <div className="absolute -inset-1 bg-gradient-to-tr from-timewise-300/30 to-timewise-500/30 rounded-3xl blur-xl opacity-70 -z-10"></div>
               <div className="glass-card rounded-3xl overflow-hidden border border-timewise-200/50 shadow-xl">
-                <img 
-                  src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?auto=format&fit=crop&q=80" 
-                  alt="Timewise dashboard"
-                  className="w-full h-auto rounded-tl-3xl rounded-tr-3xl"
-                />
+                <div className="relative">
+                  <img 
+                    src="/dashboard-mockup.png" 
+                    alt="Timewise dashboard"
+                    className="w-full h-auto rounded-tl-3xl rounded-tr-3xl"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-tr from-timewise-950/5 to-transparent rounded-tl-3xl rounded-tr-3xl"></div>
+                </div>
                 <div className="p-8 bg-white/90 backdrop-blur-sm">
                   <h3 className="text-xl font-semibold text-timewise-900 mb-4">Intuitive dashboard for all your needs</h3>
                   <p className="text-timewise-700 mb-5">Track time, manage vacations, generate reports, all in one place.</p>

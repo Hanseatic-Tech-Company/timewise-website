@@ -24,7 +24,7 @@ const features = [
       "Mobile-friendly interface"
     ],
     color: "from-timewise-500/20 to-timewise-500/5",
-    image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80"
+    image: "/time-tracking-mockup.png"
   },
   {
     id: "vacation-management",
@@ -38,7 +38,7 @@ const features = [
       "Leave history tracking"
     ],
     color: "from-timewise-600/20 to-timewise-600/5",
-    image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&q=80"
+    image: "/vacation-calendar-mockup.png"
   },
   {
     id: "compliance",
@@ -52,7 +52,7 @@ const features = [
       "Data protection built-in"
     ],
     color: "from-timewise-700/20 to-timewise-700/5",
-    image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&q=80"
+    image: "/compliance-report-mockup.png"
   },
   {
     id: "reporting",
@@ -66,7 +66,7 @@ const features = [
       "Scheduled report delivery"
     ],
     color: "from-timewise-800/20 to-timewise-800/5",
-    image: "https://images.unsplash.com/photo-1649972904349-6e44c42644a7?auto=format&fit=crop&q=80"
+    image: "/analytics-dashboard-mockup.png"
   }
 ];
 

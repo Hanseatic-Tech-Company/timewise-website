@@ -7,6 +7,7 @@ import Pricing from "@/components/Pricing";
 import FAQ from "@/components/FAQ";
 import CTA from "@/components/CTA";
 import Footer from "@/components/Footer";
+import MockupImages from "@/components/MockupImages";
 import { useEffect } from "react";
 
 const Index = () => {
@@ -48,6 +49,7 @@ const Index = () => {
         <CTA />
       </main>
       <Footer />
+      <MockupImages />
     </div>
   );
 };
