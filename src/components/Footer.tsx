@@ -11,7 +11,7 @@ const Footer = () => {
               <img 
                 src="/lovable-uploads/timewise-logo.png" 
                 alt="Timewise" 
-                className="h-10 brightness-0 invert"
+                className="h-10 brightness-0 invert object-contain max-w-[160px]"
               />
             </div>
             

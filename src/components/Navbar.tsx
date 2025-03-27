@@ -33,7 +33,7 @@ const Navbar = () => {
           <img 
             src="/lovable-uploads/timewise-logo.png" 
             alt="Timewise" 
-            className="h-8 md:h-10"
+            className="h-8 md:h-10 max-w-full object-contain"
           />
         </a>
 
