@@ -30,10 +30,10 @@ const Navbar = () => {
           className="flex items-center space-x-2"
           aria-label="Timewise Logo"
         >
-          <div className="h-8 w-8 rounded-md bg-gradient-to-tr from-timewise-700 to-timewise-500 flex items-center justify-center">
+          <div className="h-8 w-8 rounded-md bg-white flex items-center justify-center">
             <div className="relative w-5 h-5">
-              <div className="absolute top-0 left-0 w-3 h-3 bg-white rounded-full"></div>
-              <div className="absolute bottom-0 right-0 w-3 h-3 bg-white rounded-full"></div>
+              <div className="absolute top-0 left-0 w-3 h-3 bg-black rounded-full"></div>
+              <div className="absolute bottom-0 right-0 w-3 h-3 bg-black rounded-full"></div>
             </div>
           </div>
           <span className="font-display font-bold text-xl text-timewise-900">Timewise</span>
