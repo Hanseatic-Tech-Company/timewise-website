@@ -6,43 +6,38 @@ import { cn } from "@/lib/utils";
 const testimonials = [
   {
     id: 1,
-    quote: "Timewise transformed how we manage our team's time. The compliance features alone are worth every penny. Setup took less than an hour!",
-    author: "Sarah Johnson",
-    role: "HR Director, TechFlow Inc.",
-    rating: 5,
-    image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=256&h=256"
+    quote: "Timewise transformed our team's productivity. The time tracking is intuitive and the vacation management feature eliminated all the back-and-forth emails. It's been a game-changer for us.",
+    author: "Sarah J.",
+    role: "HR Director",
+    rating: 5
   },
   {
     id: 2,
-    quote: "We needed a solution that would simplify vacation tracking while ensuring we stay compliant with labor laws. Timewise delivered beyond our expectations.",
-    author: "Michael Chen",
-    role: "Operations Manager, Stellar Solutions",
-    rating: 5,
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=256&h=256"
+    quote: "We needed a solution that would simplify vacation tracking while ensuring we stay compliant with labor laws. Timewise delivered beyond our expectations. Setup was incredibly fast too!",
+    author: "Michael C.",
+    role: "Operations Manager",
+    rating: 5
   },
   {
     id: 3,
-    quote: "The interface is so intuitive that our team started using it without any training. The vacation approval workflows have eliminated all the back-and-forth emails.",
-    author: "Emma Rodriguez",
-    role: "Team Lead, Innovate Design",
-    rating: 5,
-    image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&q=80&w=256&h=256"
+    quote: "The interface is so intuitive that our team started using it without any training. I especially love how the reports give us insights we never had before.",
+    author: "Emma R.",
+    role: "Team Lead",
+    rating: 5
   },
   {
     id: 4,
-    quote: "As a small business owner, I needed something affordable that wouldn't require an IT team to maintain. Timewise is perfect - powerful yet simple.",
-    author: "David Thompson",
-    role: "Founder, Bright Ideas Co.",
-    rating: 5,
-    image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80&w=256&h=256"
+    quote: "As a small business owner, I needed something affordable that wouldn't require an IT team to maintain. Timewise is perfect - powerful yet simple. The free tier was perfect to start with.",
+    author: "David T.",
+    role: "Founder",
+    rating: 5
   },
   {
     id: 5,
-    quote: "The reporting features have given us insights we never had before. We've optimized our workforce scheduling and saved thousands in operational costs.",
-    author: "Olivia Parker",
-    role: "CFO, Summit Enterprises",
-    rating: 5,
-    image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=256&h=256"
+    quote: "We've optimized our workforce scheduling and saved thousands in operational costs thanks to Timewise. The compliance features alone are worth every penny.",
+    author: "Olivia P.",
+    role: "CFO",
+    rating: 5
   }
 ];
 
@@ -105,49 +100,28 @@ const Testimonials = () => {
                   key={testimonial.id}
                   className="w-full flex-shrink-0 px-4"
                 >
-                  <div className="bg-white rounded-3xl shadow-lg border border-timewise-100 overflow-hidden max-w-4xl mx-auto">
-                    <div className="grid grid-cols-1 md:grid-cols-5">
-                      <div className="md:col-span-3 p-8 md:p-12 flex flex-col justify-center">
-                        <div className="flex mb-6">
-                          {[...Array(5)].map((_, i) => (
-                            <Star
-                              key={i}
-                              className={cn(
-                                "h-5 w-5 mr-1",
-                                i < testimonial.rating ? "text-yellow-400 fill-yellow-400" : "text-gray-300"
-                              )}
-                            />
-                          ))}
-                        </div>
-                        <blockquote className="text-xl md:text-2xl font-medium text-timewise-950 mb-8 italic">
-                          "{testimonial.quote}"
-                        </blockquote>
-                        <div className="flex items-center">
-                          <div className="w-12 h-12 rounded-full overflow-hidden mr-4">
-                            <img 
-                              src={testimonial.image} 
-                              alt={testimonial.author} 
-                              className="w-full h-full object-cover"
-                            />
-                          </div>
-                          <div>
-                            <div className="font-semibold text-timewise-900">{testimonial.author}</div>
-                            <div className="text-sm text-timewise-600">{testimonial.role}</div>
-                          </div>
-                        </div>
+                  <div className="bg-white rounded-3xl shadow-lg border border-timewise-100 overflow-hidden max-w-4xl mx-auto p-8 md:p-12">
+                    <div className="flex mb-6">
+                      {[...Array(5)].map((_, i) => (
+                        <Star
+                          key={i}
+                          className={cn(
+                            "h-5 w-5 mr-1",
+                            i < testimonial.rating ? "text-yellow-400 fill-yellow-400" : "text-gray-300"
+                          )}
+                        />
+                      ))}
+                    </div>
+                    <blockquote className="text-xl md:text-2xl font-medium text-timewise-950 mb-8 italic">
+                      "{testimonial.quote}"
+                    </blockquote>
+                    <div className="flex items-center">
+                      <div className="w-12 h-12 rounded-full bg-timewise-100 flex items-center justify-center mr-4">
+                        <span className="font-semibold text-timewise-800">{testimonial.author.charAt(0)}</span>
                       </div>
-                      <div className="hidden md:block md:col-span-2 bg-timewise-100">
-                        <div className="h-full relative">
-                          <div className="absolute inset-0 bg-gradient-to-br from-timewise-200/40 to-timewise-400/20"></div>
-                          <div className="absolute inset-0 flex items-center justify-center">
-                            <div className="w-32 h-32 bg-white/90 rounded-full flex items-center justify-center shadow-lg">
-                              <div className="text-center">
-                                <div className="font-display font-bold text-4xl text-timewise-600">T</div>
-                                <div className="text-xs font-medium text-timewise-800 mt-1">Timewise</div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
+                      <div>
+                        <div className="font-semibold text-timewise-900">{testimonial.author}</div>
+                        <div className="text-sm text-timewise-600">{testimonial.role}</div>
                       </div>
                     </div>
                   </div>
