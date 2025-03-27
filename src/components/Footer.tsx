@@ -1,5 +1,6 @@
 
 import { ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -64,8 +65,9 @@ const Footer = () => {
               <li><a href="#" className="text-timewise-300 hover:text-white transition-colors">Über uns</a></li>
               <li><a href="#" className="text-timewise-300 hover:text-white transition-colors">Karriere</a></li>
               <li><a href="#contact" className="text-timewise-300 hover:text-white transition-colors">Kontakt</a></li>
-              <li><a href="#" className="text-timewise-300 hover:text-white transition-colors">Datenschutzrichtlinie</a></li>
-              <li><a href="#" className="text-timewise-300 hover:text-white transition-colors">Nutzungsbedingungen</a></li>
+              <li><Link to="/rechtliches#datenschutz" className="text-timewise-300 hover:text-white transition-colors">Datenschutzrichtlinie</Link></li>
+              <li><Link to="/rechtliches#nutzungsbedingungen" className="text-timewise-300 hover:text-white transition-colors">Nutzungsbedingungen</Link></li>
+              <li><Link to="/rechtliches#impressum" className="text-timewise-300 hover:text-white transition-colors">Impressum</Link></li>
             </ul>
           </div>
         </div>
