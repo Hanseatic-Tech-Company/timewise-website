@@ -60,7 +60,7 @@ const CTA = () => {
             </div>
             
             <a 
-              href="#" 
+              href="https://app.mytimewise.de/register" 
               className="button-primary inline-flex items-center"
             >
               Kostenlos Testen <ArrowRight className="ml-2 h-4 w-4" />
@@ -149,7 +149,7 @@ const CTA = () => {
               </form>
               
               <p className="text-xs text-timewise-600 mt-6 text-center">
-                Durch Absenden dieses Formulars stimmen Sie unseren <a href="#" className="underline hover:text-timewise-900">Nutzungsbedingungen</a> und <a href="#" className="underline hover:text-timewise-900">Datenschutzrichtlinien</a> zu.
+                Durch Absenden dieses Formulars stimmen Sie unseren <a href="/rechtliches#nutzungsbedingungen" className="underline hover:text-timewise-900">Nutzungsbedingungen</a> und <a href="/rechtliches#datenschutz" className="underline hover:text-timewise-900">Datenschutzrichtlinien</a> zu.
               </p>
             </div>
           </div>

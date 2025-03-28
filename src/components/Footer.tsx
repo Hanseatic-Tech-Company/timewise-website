@@ -36,6 +36,8 @@ const Footer = () => {
               <li><Link to="/rechtliches#datenschutz" className="text-timewise-300 hover:text-white transition-colors">Datenschutzrichtlinie</Link></li>
               <li><Link to="/rechtliches#nutzungsbedingungen" className="text-timewise-300 hover:text-white transition-colors">Nutzungsbedingungen</Link></li>
               <li><Link to="/rechtliches#impressum" className="text-timewise-300 hover:text-white transition-colors">Impressum</Link></li>
+              <li><a href="https://app.mytimewise.de/login" className="text-timewise-300 hover:text-white transition-colors">Anmelden</a></li>
+              <li><a href="https://app.mytimewise.de/register" className="text-timewise-300 hover:text-white transition-colors">Registrieren</a></li>
             </ul>
           </div>
         </div>

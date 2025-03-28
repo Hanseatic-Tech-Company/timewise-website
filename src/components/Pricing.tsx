@@ -99,7 +99,7 @@ const Pricing = () => {
                 </div>
                 
                 <a 
-                  href="#contact" 
+                  href={plan.price === 0 ? "https://app.mytimewise.de/register" : "https://app.mytimewise.de/register"}
                   className={cn(
                     "w-full text-center block py-3 px-6 rounded-lg font-medium transition-all duration-300 mb-8",
                     plan.buttonVariant === "primary" 

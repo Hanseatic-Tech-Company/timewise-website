@@ -1,3 +1,4 @@
+
 import { ArrowRight, Clock, Calendar, Shield } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
@@ -37,7 +38,7 @@ const Hero = () => {
                 className="w-full sm:w-auto bg-timewise-600 hover:bg-timewise-700 text-white"
                 asChild
               >
-                <a href="#contact">Kostenlos testen</a>
+                <a href="https://app.mytimewise.de/register">Kostenlos testen</a>
               </Button>
               
               <Button 

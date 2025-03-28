@@ -67,13 +67,13 @@ const Navbar = () => {
 
         <div className="hidden md:flex items-center space-x-4">
           <a 
-            href="#contact" 
+            href="https://app.mytimewise.de/login" 
             className="px-5 py-2 text-sm font-medium text-timewise-700 hover:text-timewise-800 transition-colors"
           >
             Anmelden
           </a>
           <a 
-            href="#contact" 
+            href="https://app.mytimewise.de/register" 
             className="button-primary text-sm"
           >
             Jetzt Starten
@@ -124,14 +124,14 @@ const Navbar = () => {
             </a>
             <div className="pt-4 flex flex-col space-y-4">
               <a 
-                href="#contact" 
+                href="https://app.mytimewise.de/login" 
                 className="block px-5 py-2 text-center text-timewise-700 hover:text-timewise-800 transition-colors"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Anmelden
               </a>
               <a 
-                href="#contact" 
+                href="https://app.mytimewise.de/register" 
                 className="block button-primary text-center"
                 onClick={() => setMobileMenuOpen(false)}
               >
