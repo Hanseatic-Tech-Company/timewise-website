@@ -1,0 +1,37 @@
+apiVersion: v1
+entries:
+  timewise-website:
+  - annotations:
+      artifacthub.io/category: integration-delivery
+      artifacthub.io/changes: |
+        - kind: added
+          description: Initial release of Timewise website Helm chart
+      artifacthub.io/license: MIT
+      artifacthub.io/links: |
+        - name: GitHub Repository
+          url: https://github.com/Hanseatic-Tech-Company/timewise-website
+    apiVersion: v2
+    appVersion: 1.0.0
+    created: "2025-10-02T16:44:46.069153+02:00"
+    description: A Helm chart for Timewise - Modern Time Tracking and Compliance Management
+    digest: 06c0b41028b8ca5072a9a22328f22f600e2ad2bbaa7b7692f1735581b4ec4d7f
+    home: https://github.com/Hanseatic-Tech-Company/timewise-website
+    icon: https://raw.githubusercontent.com/Hanseatic-Tech-Company/timewise-website/main/public/lovable-uploads/timewise-logo.png
+    keywords:
+    - timewise
+    - time-tracking
+    - compliance
+    - frontend
+    - react
+    - vite
+    maintainers:
+    - name: Hanseatic Tech Company
+      url: https://github.com/Hanseatic-Tech-Company
+    name: timewise-website
+    sources:
+    - https://github.com/Hanseatic-Tech-Company/timewise-website
+    type: application
+    urls:
+    - https://hanseatic-tech-company.github.io/timewise-website/charts/timewise-website-1.0.0.tgz
+    version: 1.0.0
+generated: "2025-10-02T16:44:46.066936+02:00"
