@@ -1,0 +1,13 @@
+{{- if .Values.envConfigMap }}
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "timewise-website.fullname" . }}-env
+  labels:
+    {{- include "timewise-website.labels" . | nindent 4 }}
+data:
+  {{- range $key, $value := .Values.envConfigMap }}
+  {{ $key }}: {{ $value | quote }}
+  {{- end }}
+{{- end }}
+

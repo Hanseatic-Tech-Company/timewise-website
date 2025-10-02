@@ -1,0 +1,23 @@
+# Artifact Hub metadata
+# Reference: https://artifacthub.io/docs/topics/annotations/helm/
+
+# Image used for the chart
+images:
+  - name: timewise-website
+    image: timewise/timewise-website:1.0.0
+
+# List of changes for the current version
+changes:
+  - kind: added
+    description: Initial release of Timewise website Helm chart
+    links:
+      - name: GitHub
+        url: https://github.com/Hanseatic-Tech-Company/timewise-website
+
+# Links to documentation and other resources
+links:
+  - name: GitHub Repository
+    url: https://github.com/Hanseatic-Tech-Company/timewise-website
+  - name: Chart Documentation
+    url: https://github.com/Hanseatic-Tech-Company/timewise-website/blob/main/helm/timewise-website/README.md
+

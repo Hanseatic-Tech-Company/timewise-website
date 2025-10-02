@@ -1,0 +1,6 @@
+# Chart Releaser configuration
+owner: Hanseatic-Tech-Company
+git-repo: timewise-website
+charts-dir: helm
+skip-existing: true
+
